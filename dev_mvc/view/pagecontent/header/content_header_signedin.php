@@ -1,0 +1,7 @@
+<?php
+include_once("./controller/AssetHandler.php");
+AssetHandler::printAsset("logo.png", true, 128);
+?>
+<nav>
+    <a href="?p=attempt_logout">log out</a> <a href="?p=">home</a> <a href="?p=destroy">simulate $_SESSION expiry</a>
+</nav>
