@@ -5,6 +5,7 @@
         E-mail: <input type="text" name="email" id="email" onkeyup="checkInputs()"><br>
         Password: <input type="password" name="pass" id="pass" onkeyup="checkInputs()"><br>
         Verify Password: <input type="password" name="pass2" id="pass2" onkeyup="checkInputs()"><br>
+        <input type="hidden" name="p" value="do_register" />
         <input type="submit" id="submitButton" disabled>
     </form>
     <div id="jsSignupAlert"></div>

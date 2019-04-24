@@ -18,10 +18,9 @@
         <main>
 <?php
 //Store de geselecteerde pagina in variabele $page
-$page=HUtils::getPage();
+$page=HUtils::getPage(HUtils::FETCHGET);
 //Laad de juiste view
 $path = "./view/pagecontent/content_".$page.".php";
-
 if($page != ""){
     if(file_exists($path)){
     include_once($path);

@@ -1,5 +1,7 @@
 <?php
 Class HUtils{
+    const FETCHGET = 0;
+    const FETCHPOST = 1;
     static function issetPost($arr_postvars){
         for ($i=0; $i <sizeof($arr_postvars) ; $i++) 
         { 
@@ -22,10 +24,18 @@ Class HUtils{
         
         return new DateTime($date);
     }
-    static function getPage(){
+    static function getPage($fetchmethod){
         $p = "";
-        if(isset($_GET['p'])){
-            $p = $_GET['p'];
+        if($fetchmethod == HUtils::FETCHGET){
+            if(isset($_GET['p'])){
+                $p = $_GET['p'];               
+            }
+        }
+        else if($fetchmethod == HUtils::FETCHPOST){
+            if(isset($_POST['p']))
+            {
+                $p = $_POST['p'];
+            }
         }
         return $p;
     }

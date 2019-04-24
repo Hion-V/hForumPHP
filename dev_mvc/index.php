@@ -14,7 +14,7 @@ include_once("./controller/UserSession.php");
 include_once("./controller/HUtils.php");
 session_start();
 //Store de geselecteerde pagina in variabele $page
-$page=HUtils::getPage();
+$page=HUtils::getPage(HUtils::FETCHPOST);
 //Model side operaties die afgerond moeten worden voor de paginacontent in wordt geladen
 $path = "./model/model_".$page.".php";
 if($page != ""){

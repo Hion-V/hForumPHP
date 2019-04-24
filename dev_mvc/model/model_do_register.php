@@ -2,7 +2,7 @@
 //Include classes
 include_once("./controller/Database.php");
 include_once("./controller/HUtils.php");
-if(HUtils::issetPost(['email', 'pass', 'name'])){
+if(HUtils::issetPost(['email', 'pass', 'pass2', 'name'])){
     if($_POST['pass'] == $_POST['pass2']){
         //Check of email aanwezig is in de database
         if(!Database::checkUsedEmail($_POST['email']) && !Database::checkUsedUsername($_POST['name'])){

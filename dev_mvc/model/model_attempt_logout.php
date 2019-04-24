@@ -4,9 +4,4 @@ if(UserSession::isSessionValid()){
     Database::invalidateSession(UserSession::getSession()->token);
     session_destroy();
 }
-
-
-
-
-
 ?>
