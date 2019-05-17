@@ -1,5 +1,6 @@
 <?php
 Class Database{
+    //Maakt verbinding met de database en returnt pdo opbject
     static function connectToDB(){
         //Defineer vars
         $sql_server = "localhost";
@@ -50,7 +51,7 @@ Class Database{
             return true;
         }
     }
-    //Registreert een gebruiker. Neemt als invoer email, wachtwoord, gebruikersnaam.
+    //Registreert een gebruiker. Neemt als invoer email, wachtwoord, gebruikersnaam. en email activation key. Nog niet volledig geimplementeerd
     static function registerUser($email, $password, $username){
         $ip = $_SERVER['REMOTE_ADDR'];
         //Initit db connection
@@ -123,6 +124,66 @@ Class Database{
             return "dbfetcherror";
         }
     }
+
+    /***
+     *      ______ __  __          _____ _                 _____ _______ _______      __  _______ _____ ____  _   _ 
+     *     |  ____|  \/  |   /\   |_   _| |          /\   / ____|__   __|_   _\ \    / /\|__   __|_   _/ __ \| \ | |
+     *     | |__  | \  / |  /  \    | | | |         /  \ | |       | |    | |  \ \  / /  \  | |    | || |  | |  \| |
+     *     |  __| | |\/| | / /\ \   | | | |        / /\ \| |       | |    | |   \ \/ / /\ \ | |    | || |  | | . ` |
+     *     | |____| |  | |/ ____ \ _| |_| |____   / ____ \ |____   | |   _| |_   \  / ____ \| |   _| || |__| | |\  |
+     *     |______|_|  |_/_/    \_\_____|______| /_/    \_\_____|  |_|  |_____|   \/_/    \_\_|  |_____\____/|_| \_|
+     *                                                                                                              
+     *                                                                                                              
+    ***/
+
+    //Kijk of de user activation key al bestaat in de databse.
+    static function doesUserActivationKeyExist($activationKey){
+        $con = Database::connectToDB();
+        $query = $con->prepare("SELECT * FROM email_activation_keys WHERE activationkey = :activationKey");
+        $query->bindParam(':activationKey', $activationKey, PDO::PARAM_STR, 256);
+        $query->execute();
+        if($query->rowCount() == 0){
+            //bestaat nog niet
+            return false;
+        }
+        else{
+            //bestaat al
+            return true;
+        }
+    }
+    //Activeer gebruiker en verwijder activation key uit de activation key tabel
+    static function activateUser($activationKey){
+        $con = Database::connectToDb();
+        $query = $con->prepare("SELECT users_id FROM email_activation_keys WHERE activationKey = :activationKey");
+        $query->bindParam('activationKey', $activationKey);
+        $query->execute();
+        $result = -1;
+        if($query->rowCount() == 1){
+            //login correct, return uid
+            $result = $query->fetch(PDO::FETCH_COLUMN);
+        }
+        else{
+            //activation key komt niet voor in de db, return -1
+            return -1;
+        }
+        $id = $result;
+        $query = null;
+        $query = $con->prepare("UPDATE users SET active = 1 WHERE id = :id and active = 0");
+        $query->bindParam(':id',$id,PDO::PARAM_INT);
+        $query->execute();
+    }
+
+  /***
+    *       _____ ______  _____ _____ _____ ____  _   _   _______ ____  _  ________ _   _  _____ 
+    *      / ____|  ____|/ ____/ ____|_   _/ __ \| \ | | |__   __/ __ \| |/ /  ____| \ | |/ ____|
+    *     | (___ | |__  | (___| (___   | || |  | |  \| |    | | | |  | | ' /| |__  |  \| | (___  
+    *      \___ \|  __|  \___ \\___ \  | || |  | | . ` |    | | | |  | |  < |  __| | . ` |\___ \ 
+    *      ____) | |____ ____) |___) |_| || |__| | |\  |    | | | |__| | . \| |____| |\  |____) |
+    *     |_____/|______|_____/_____/|_____\____/|_| \_|    |_|  \____/|_|\_\______|_| \_|_____/ 
+    *                                                                                       
+   ***/                                                                                           
+
+
     static function isSessionTokenInUse($token){
         //Init db connection
         $con = Database::connectToDB();
@@ -207,12 +268,9 @@ Class Database{
             return $result;
         }
         else{
-            //something went wrong, return -1
+            //something went wrong, return an invalid date.
             return "2000-01-01 00:00:00";
         }
-    }
-    static function createThread(){
-        
     }
 }
 ?>
