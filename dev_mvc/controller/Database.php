@@ -140,7 +140,7 @@ Class Database{
     static function doesUserActivationKeyExist($activationKey){
         $con = Database::connectToDB();
         $query = $con->prepare("SELECT * FROM email_activation_keys WHERE activationkey = :activationKey");
-        $query->bindParam(':activationKey', $activationKey, PDO::PARAM_STR, 256);
+        $query->bindParam(':activationKey', $activationKey, PDO::PARAM_STR, 256);        
         $query->execute();
         if($query->rowCount() == 0){
             //bestaat nog niet
@@ -151,6 +151,16 @@ Class Database{
             return true;
         }
     }
+    static function registerActivationKey($users_id, $activationKey){
+        $con = Database::connectToDB();
+        $query = $con->prepare("INSERT INTO email_activation_keys (users_id, activationkey) VALUES (:users_id, :activationkey)");
+        $query->bindParam(':users_id', $users_id);
+        $query->bindParam(':activationkey', $activationKey);
+        $query->execute();
+    }
+
+
+
     //Activeer gebruiker en verwijder activation key uit de activation key tabel
     static function activateUser($activationKey){
         $con = Database::connectToDb();

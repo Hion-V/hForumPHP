@@ -21,7 +21,6 @@ Class HUtils{
         return true;
     }
     static function sqlDateToPhpDate($date){
-        
         return new DateTime($date);
     }
     static function getPage($fetchmethod){
@@ -41,6 +40,15 @@ Class HUtils{
     }
     static function getSiteTitle(){
         return "hPHPForum";
+    }
+    static function generateRandomKey(){
+        $token = "";
+        $chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $verificationKey = "";
+        for ($i=0; $i < 32 ; $i++) { 
+            $token .= $chars[rand(0, strlen($chars) - 1)];
+        }
+        return $token;
     }
 }
 ?>
