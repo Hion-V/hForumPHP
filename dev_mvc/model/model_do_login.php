@@ -41,6 +41,5 @@ if(!UserSession::isSessionValid()){
 }
 else{
     //we're done, don't even need to log in, session already active
-    //echo($_SESSION['usersession']->uid); 
 }
 ?>
