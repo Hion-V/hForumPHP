@@ -1,15 +1,12 @@
 <?php
 Class UserSession{
-    public $username = "undefined";
     public $uid = -1;
     public $token = "undefined";
     public $expires;
-    public function UserSession($username, $uid, $token = "undefined"){
-        $this->username = $username;
+    public function UserSession($uid, $token = "undefined"){
         $this->uid = $uid;
         $this->token = $token;
         $this->setExpiry();
-        //echo($username."<br>");
         //echo($loginSessionToken);
         $_SESSION['usersession'] = $this;
         setcookie('usersession', $this->token);
@@ -39,7 +36,6 @@ Class UserSession{
     public static function isSessionValid(){
         if(isset($_SESSION['usersession'])){
             if(!Database::isSessionValid($_SESSION['usersession']->token, $_SESSION['usersession']->uid)){
-                echo('session invalid in db');
                 return false;
             }
             if(!UserSession::isSessionExpired($_SESSION['usersession'])){
@@ -52,8 +48,7 @@ Class UserSession{
                 $token = $_COOKIE['usersession'];
                 $uid = $_COOKIE['uid'];
                 if(Database::isSessionValid($token,$uid)){
-                    $username = Database::getUsername($uid);
-                    $session = new UserSession($username, $uid, $token);
+                    $session = new UserSession($uid, $token);
                     $session->expires = new DateTime(Database::getSessionExpiryDate($token));
                 }
                 else{
@@ -81,6 +76,7 @@ Class UserSession{
         }
     }
     public static function isUserSignedIn(){
+        /*
         if(UserSession::isSessionValid()){
             if(!UserSession::isSessionExpired(UserSession::getSession())){
                 if(Database::isSessionValid(UserSession::getSession()->token, UserSession::getSession()->uid)){
@@ -95,11 +91,31 @@ Class UserSession{
         else{
             return false;
         }
-    }
-    public static function updateSigninState(){
-        if(!UserSession::isUserSignedIn()){
-            
+        */
+
+        //session exists, no need to do anything
+        if(isset($_SESSION['usersession'])){
+            return true;
         }
+        else{
+            if(isset($_COOKIE['usersession'])){
+                //check if the session exists in the database
+                if(Database::isSessionTokenInUse($_COOKIE['usersession'])){
+                    //check if database expiration datetime is still valid
+                    $expirationDateTime = Database::getSessionExpiryDate($_COOKIE['usersession']);
+                    if(new DateTime($expirationDateTime) >= new DateTime()){
+                        //user is signed in. Restore session
+                        $userSession = new UserSession($_COOKIE['uid'], $_COOKIE['usersession']);
+                        return true;
+                    }
+                    else{
+                        Database::invalidateSession($_COOKIE['usersession']);
+                    }
+                }
+            }
+        }
+        //session either doesn't exist, doesn't exist in cookie, doesn't exist in database, or is expired in the database.
+        return false;
     }
 }
 ?>

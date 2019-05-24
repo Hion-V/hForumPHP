@@ -4,7 +4,4 @@ if(UserSession::isUserSignedIn()){
 }else{
     include("./view/pagecontent/header/content_header_signedout.php"); 
 }
-if(!UserSession::isSessionValid()){
-    include_once("./model/actions/model_signout.php");
-}
 ?>

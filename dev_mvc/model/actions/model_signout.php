@@ -1,7 +1,4 @@
 <?php
-include_once("./controller/UserSession.php");
-if(UserSession::isSessionValid()){
-    Database::invalidateSession(UserSession::getSession()->token);
-}
+Database::invalidateSession($_COOKIE['usersession']);
 session_destroy();
 ?>

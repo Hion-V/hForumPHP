@@ -19,7 +19,7 @@ include_once("./controller/ActionHandler.php");
 session_start();
 //Execute Actie zo nodig.
 ActionHandler::doAction();
-UserSession::UpdateSigninState();
+
 
 
 //Store de geselecteerde pagina in variabele $page

@@ -3,7 +3,7 @@ $debuginfo = false;
 include_once("./controller/UserSession.php");
 include_once("./controller/Database.php");
 include_once("./controller/HUtils.php");
-if(!UserSession::isSessionValid()){
+if(!UserSession::isUserSignedIn()){
     if(HUtils::issetPost(['email','password'])){
         if(Database::isLoginValid($_POST['email'], $_POST['password'])){
             //obtain UID
@@ -17,7 +17,7 @@ if(!UserSession::isSessionValid()){
                 while(Database::isSessionTokenInUse($token)){
                     $token = UserSession::generateToken();
                 }
-                $a = new UserSession($username, $uid, $token);
+                $a = new UserSession($uid, $token);
                 if($debuginfo){
                     echo $a->getSessionToken();
                     echo "<br>";
