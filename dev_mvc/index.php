@@ -15,10 +15,11 @@ include_once("./controller/Database.php");
 include_once("./controller/UserSession.php");
 include_once("./controller/HUtils.php");
 include_once("./controller/ActionHandler.php");
-
+//Start session.
 session_start();
+//Execute Actie zo nodig.
 ActionHandler::doAction();
-
+UserSession::UpdateSigninState();
 
 
 //Store de geselecteerde pagina in variabele $page

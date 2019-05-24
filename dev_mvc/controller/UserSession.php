@@ -39,7 +39,7 @@ Class UserSession{
     public static function isSessionValid(){
         if(isset($_SESSION['usersession'])){
             if(!Database::isSessionValid($_SESSION['usersession']->token, $_SESSION['usersession']->uid)){
-                include_once("./model/model_attempt_logout.php");
+                echo('session invalid in db');
                 return false;
             }
             if(!UserSession::isSessionExpired($_SESSION['usersession'])){
@@ -86,10 +86,19 @@ Class UserSession{
                 if(Database::isSessionValid(UserSession::getSession()->token, UserSession::getSession()->uid)){
                     return true;
                 }
+                
             }
             else{
                 return false;
             }
+        }
+        else{
+            return false;
+        }
+    }
+    public static function updateSigninState(){
+        if(!UserSession::isUserSignedIn()){
+            
         }
     }
 }
