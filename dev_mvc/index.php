@@ -19,14 +19,10 @@ include_once("./controller/ActionHandler.php");
 session_start();
 //Execute Actie zo nodig.
 ActionHandler::doAction();
-
-
-
-//Store de geselecteerde pagina in variabele $page
-$page=HUtils::getPage(HUtils::FETCHPOST);
-
+//Store de geselecteerde model in variabele $model
+$model=HUtils::getPage(HUtils::FETCHPOST);
 //Model side operaties die afgerond moeten worden voor de paginacontent in wordt geladen
-$path = "./model/model_".$page.".php";
+$model = "./model/model_".$model.".php";
 if($page != ""){
     if(file_exists($path)){
         include_once($path);
