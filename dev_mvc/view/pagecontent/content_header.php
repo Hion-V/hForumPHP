@@ -7,5 +7,4 @@ if(UserSession::isUserSignedIn()){
 if(!UserSession::isSessionValid()){
     include_once("./model/actions/model_signout.php");
 }
-echo('content_header');
 ?>
