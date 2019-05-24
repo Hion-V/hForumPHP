@@ -18,7 +18,7 @@ if(HUtils::issetPost(['email', 'pass', 'pass2', 'name'])){
             Database::registerUser($email, $pass, $name);
             $uid = Database::getUID($email, $pass);
             Database::registerActivationKey($uid,$verificationKey);
-            $message = 'Please follow the link to verify your account: http://localhost/webforum_redux/index.php?p=verify&key='.$verificationKey;
+            $message = 'Please follow the link to verify your account: http://localhost/webforum_redux/hforumphp/dev_mvc/index.php?p=verify&key='.$verificationKey;
             $headers = 'From: webmaster@example.com' . "\r\n" .
             'Reply-To: webmaster@example.com' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();

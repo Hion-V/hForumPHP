@@ -121,7 +121,7 @@ Class Database{
         }
         else{
             //something went wrong, return -1
-            return "dbfetcherror";
+            return "db_user_invalid";
         }
     }
 
@@ -235,6 +235,7 @@ Class Database{
         $query->execute();
         //Check hoeveelheid teruggestuurde rijen
         if($query->rowCount() == 1){
+            echo('session valid in db<br>');
             return true;
         }
         else{
@@ -242,6 +243,7 @@ Class Database{
         }
     }
     static function invalidateSession($token){
+        echo("hek");
         //Init db connection
         $con = Database::connectToDB();
         //Bereid query voor
