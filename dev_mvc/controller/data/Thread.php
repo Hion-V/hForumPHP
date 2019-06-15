@@ -14,5 +14,4 @@ class Thread{
         array_push(Thread::$threadArray, $this);
     }
 }
-
 ?>

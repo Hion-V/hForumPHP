@@ -22,8 +22,8 @@ ActionHandler::doAction();
 //Store de geselecteerde model in variabele $model
 $model=HUtils::getPage(HUtils::FETCHPOST);
 //Model side operaties die afgerond moeten worden voor de paginacontent in wordt geladen
-$model = "./model/model_".$model.".php";
-if($page != ""){
+$path = "./model/model_".$model.".php";
+if($model != ""){
     if(file_exists($path)){
         include_once($path);
     }

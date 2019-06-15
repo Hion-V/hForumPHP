@@ -8,7 +8,9 @@ if(UserSession::isUserSignedIn()){
     for($i = 0; $i < sizeof($topics); $i++){
         echo '<a href="?p=showthread&topic='.$i.'">'.$topics[$i][1].'</a> - Gestart door: '.Database::getUsername($topics[$i][2]);
         echo '<br>';
+
     }
+    echo();
 }
 
 ?>

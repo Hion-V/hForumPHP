@@ -92,7 +92,6 @@ Class UserSession{
             return false;
         }
         */
-
         //session exists, no need to do anything
         if(isset($_SESSION['usersession'])){
             return true;
@@ -109,6 +108,7 @@ Class UserSession{
                         return true;
                     }
                     else{
+                        //remove session from the database
                         Database::invalidateSession($_COOKIE['usersession']);
                     }
                 }
