@@ -10,7 +10,7 @@ if(UserSession::isUserSignedIn()){
         echo '<br>';
 
     }
-    echo();
+    //echo('aaa');
 }
 
 ?>
