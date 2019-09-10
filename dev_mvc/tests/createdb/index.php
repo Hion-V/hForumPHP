@@ -3,7 +3,7 @@
 $host="172.21.0.3"; //docker sql container bridge ip
 
 $root="root"; 
-$root_password="rootpass"; 
+$root_password="jenk"; //testdb password
 
 $user='forumadmin';
 $pass='doesntmatter';
