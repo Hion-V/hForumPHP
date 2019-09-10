@@ -6,6 +6,7 @@ Class Database{
         $sql_server = "localhost";
         $sql_username = "root";
         $sql_password = "Jenk";
+        //test
         $sql_database = "webforum";
         $dsn = "mysql:host=$sql_server;dbname=$sql_database";
         //Maak verbinding
