@@ -25,7 +25,7 @@ $db="webforum";
     try {
         $dsn = "mysql:host=$host;dbname=$db";
         //Maak verbinding
-        $con = new PDO($dsn, $user, $pass);
+        $con = new PDO($dsn, $root, $root_password);
         $con->exec("CREATE TABLE `board` (
                     `ID` int(16) NOT NULL AUTO_INCREMENT,
                     `name` varchar(256) NOT NULL,
