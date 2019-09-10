@@ -3,7 +3,7 @@ Class Database{
     //Maakt verbinding met de database en returnt pdo opbject
     static function connectToDB(){
         //Defineer vars
-        $sql_server = "localhost";
+        $sql_server = "172.21.0.3"; //docker sql container bridge ip
         $sql_username = "root";
         $sql_password = "jenk";
         $sql_database = "webforum";
