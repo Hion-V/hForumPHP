@@ -1,0 +1,9 @@
+<?php 
+require_once('./controller/UserSession.php');
+if(UserSession::isUserSignedIn()){
+	include('./view/webcontent/header/header_signedin.php');
+}
+else{
+	include('./view/webcontent/header/header_signedout.php');
+}
+?>
