@@ -4,7 +4,7 @@ if(isset($_POST['auth'])){
         createDB();
     }
 }else{
-    echo('test');
+    echol('you have no authorization to do that');
 }
 
 function createDB(){
