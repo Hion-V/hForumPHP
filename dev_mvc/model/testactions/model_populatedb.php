@@ -34,13 +34,13 @@ function populateDB(){
         
         echol('table doesnt exist');
         $query = $con->query("INSERT INTO `users` 
-                            (`ID`, `username`, `email`, `password`, `reg_ip`, `permissions`, `active`) 
+                            (`username`, `email`, `password`, `reg_ip`, `active`) 
                             VALUES 
-                            (NULL, 'Andreas', 'the.hion.v@gmail.com', 'huts', '::1', '-1', '1')");
+                            ('Andreas', 'the.hion.v@gmail.com', 'huts', '::1', '1')");
         $query = $con->query("INSERT INTO `users` 
-                            (`ID`, `username`, `email`, `password`, `reg_ip`, `permissions`, `active`) 
+                            (`username`, `email`, `password`, `reg_ip`, `active`) 
                             VALUES 
-                            (NULL, 'Bram', 'bram@gmail.com', 'huts', '::1', '-1', '1')");
+                            ('Bram', 'bram@gmail.com', 'huts', '::1', '1')");
         echol("created test users");
     }
     catch(PDOException $e){
