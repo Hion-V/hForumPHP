@@ -1,6 +1,7 @@
 <?php
-echo($_POST['auth']);
+echol($_POST['auth']);
 if(isset($_POST['auth'])){
+    echo('test3');
     if($_POST['auth'] == getenv('ADMIN_ACTION_KEY')){
         echo('test2');
     }
