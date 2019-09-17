@@ -1,6 +1,7 @@
 <?php
 class MVCController{
 	private $model;
+	private $testaction;
     private $viewmodel;
     private $view;
     private $viewOverridden = false;
@@ -28,7 +29,14 @@ class MVCController{
     	}
     	else{
     		$this->model = "./model/actions/model_empty.php";
-    	}
+		}
+
+
+		if(isset($_POST['testaction'])){
+			$this->testaction = "./model/testactions/model_".$_POST['testaction'].".php";
+		}
+
+
     }
     static function getMVCController():MVCController
     {
@@ -51,7 +59,17 @@ class MVCController{
     	else{
     		//debug message
     		echo("caught call on non-existant model file.");
-    	}
+		}
+
+
+		//TESTACTION LAYER
+
+
+		//check if testaction is valid
+		if(file_exists($this->testaction)){
+			//execute testaction
+			include_once($this->testaction);
+		}
     	
     }
     function executeViewmodel():void

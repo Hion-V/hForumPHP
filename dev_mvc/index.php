@@ -10,7 +10,7 @@ require_once('./controller/UserSession.php');
 session_start();
 $mvcController = new MVCController();
 $mvcController->executeModel();
-if(!isset($_POST['admin'])){
+if(!isset($_POST['testaction'])){
     include_once("./view/content_pagetemplate.php");
 }
 ?>
