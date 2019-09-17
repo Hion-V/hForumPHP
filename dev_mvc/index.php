@@ -5,5 +5,7 @@ require_once('./controller/UserSession.php');
 session_start();
 $mvcController = new MVCController();
 $mvcController->executeModel();
-include_once("./view/content_pagetemplate.php");
+if(!isset($_POST['admin'])){
+    include_once("./view/content_pagetemplate.php");
+}
 ?>
