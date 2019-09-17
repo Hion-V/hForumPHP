@@ -32,6 +32,7 @@ function createDB(){
     $query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$db'");
     //db exists
     if($query->fetchColumn() != 1){
+        $query = $con->query("CREATE DATABASE $db");
         echol('db doesnt exist');
     }
     //db doesn't exist
