@@ -1,8 +1,7 @@
 <?php
 function echol($output)
 {
-    echo $output;
-    echo "<br>";
+    echo $output."\n";
 }
 
 //date_default_timezone_set('Europe/Amsterdam');
