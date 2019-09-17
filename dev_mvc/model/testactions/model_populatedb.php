@@ -33,8 +33,8 @@ function populateDB(){
         
         
         echol('table doesnt exist');
-        $query = $con->query("INSERT INTO users ( username , email, password, reg_ip, active) VALUES ('Andreas', 'the.hion.v@gmail.com', 'huts', '::1', 1)");
-        $query = $con->query("INSERT INTO users ( username , email, password, reg_ip, active) VALUES ('Bram', 'bram@gmail.com', 'huts', '::1', 1)");
+        $query = $con->query("INSERT INTO users (username, email, password, reg_ip, active) VALUES ( 'andreas' , 'andreas@andreas.nl', 'jenk', '192.168.0.2', 1)");
+        $query = $con->query("INSERT INTO users (username, email, password, reg_ip, active) VALUES ( 'bram' , 'bram@bram.nl', 'jenk', '192.168.0.1', 1)");
         echol("created test users");
     }
     catch(PDOException $e){
