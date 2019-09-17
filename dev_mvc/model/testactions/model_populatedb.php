@@ -20,20 +20,7 @@ function populateDB(){
         
         //connect to sql server
         $con = new PDO( "mysql:host=$host;charset=utf8", $user, $pass );
-        //check if db exists
-        $query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$db'");
-        //db exists
-        if($query->fetchColumn() != 1){
-            $query = $con->query("CREATE DATABASE $db");
-            echol('db doesnt exist');
-        }
-        //db doesn't exist
-        else{
-            echol('db already exists, skipping');
-        }
-        //select db
         $con->exec("USE $db");
-        //test if table exists
         
         
         
