@@ -1,10 +1,7 @@
 <?php
-echol($_POST['auth']);
-echol(getenv('ADMIN_ACTION_KEY'));
 if(isset($_POST['auth'])){
-    echol('auth is set');
     if($_POST['auth'] == getenv('ADMIN_ACTION_KEY')){
-        echo('auth is the same as admin action key');
+        createDB();
     }
 }else{
     echo('test');
