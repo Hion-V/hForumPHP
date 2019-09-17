@@ -117,7 +117,7 @@ function createDB(){
             `description` text NOT NULL,
             `permLevel` int(16) NOT NULL DEFAULT '0',
             PRIMARY KEY (`ID`)
-           ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1");
+           ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
         echol("created table $table");
     }
     //table exists
