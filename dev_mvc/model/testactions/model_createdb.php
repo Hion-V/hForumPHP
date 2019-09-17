@@ -62,27 +62,27 @@ function createDB(){
             `active` tinyint(1) DEFAULT '0',
             PRIMARY KEY (`ID`)
            ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1");
-           echol("created table $table");
-        }
-        //table exists
-        else{
-            echol("table $table already exists, skipping");
-        }
+        echol("created table $table");
+    }
+    //table exists
+    else{
+        echol("table $table already exists, skipping");
+    }
         
-        $table = 'usersessions';
-        $query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table'");
-        if($query->fetchColumn() != 4){
-            echol('table doesnt exist');
-            $query = $con->query(
-                "	CREATE TABLE `usersessions` (
-            `id` int(11) NOT NULL AUTO_INCREMENT,
-            `uid` int(11) NOT NULL,
-            `token` varchar(256) NOT NULL,
-            `expires` datetime NOT NULL,
-            PRIMARY KEY (`id`)
-           ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1");
-           echol("created table $table");
-        }
+    $table = 'usersessions';
+    $query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table'");
+    if($query->fetchColumn() != 4){
+        echol('table doesnt exist');
+        $query = $con->query(
+            "	CREATE TABLE `usersessions` (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `uid` int(11) NOT NULL,
+        `token` varchar(256) NOT NULL,
+        `expires` datetime NOT NULL,
+        PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1");
+        echol("created table $table");
+    }
     //table exists
     else{
         echol("table $table already exists, skipping");
@@ -99,7 +99,7 @@ function createDB(){
             `activationkey` varchar(256) NOT NULL,
             PRIMARY KEY (`id`)
            ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1");
-           echol("created table $table");
+        echol("created table $table");
         }
         //table exists
         else{
@@ -118,7 +118,7 @@ function createDB(){
             `permLevel` int(16) NOT NULL DEFAULT '0',
             PRIMARY KEY (`ID`)
            ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1");
-           echol("created table $table");
+        echol("created table $table");
     }
     //table exists
     else{
@@ -140,7 +140,7 @@ function createDB(){
             `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (`ID`)
            ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1");
-           echol("created table $table");
+        echol("created table $table");
         }
         //table exists
         else{
@@ -160,7 +160,7 @@ function createDB(){
             `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (`ID`)
            ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1");
-           echol("created table $table");
+        echol("created table $table");
         }
         //table exists
         else{
