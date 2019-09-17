@@ -61,7 +61,7 @@ function createDB(){
             `permissions` int(11) NOT NULL DEFAULT '-1',
             `active` tinyint(1) DEFAULT '0',
             PRIMARY KEY (`ID`)
-           ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1");
+           ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
         echol("created table $table");
     }
     //table exists
@@ -80,7 +80,7 @@ function createDB(){
         `token` varchar(256) NOT NULL,
         `expires` datetime NOT NULL,
         PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1");
+        ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
         echol("created table $table");
     }
     //table exists
@@ -98,7 +98,7 @@ function createDB(){
             `users_id` int(16) NOT NULL,
             `activationkey` varchar(256) NOT NULL,
             PRIMARY KEY (`id`)
-           ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1");
+           ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
         echol("created table $table");
         }
         //table exists
@@ -139,7 +139,7 @@ function createDB(){
             `text` text NOT NULL,
             `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (`ID`)
-           ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1");
+           ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
         echol("created table $table");
         }
         //table exists
@@ -159,7 +159,7 @@ function createDB(){
             `content` text NOT NULL,
             `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (`ID`)
-           ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1");
+           ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
         echol("created table $table");
         }
         //table exists
