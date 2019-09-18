@@ -8,7 +8,7 @@ class TestUtils{
         $loginput = [];
         $loginput['message'] = $output;
         $loginput['status'] = $status;
-        array_push(self::log, $loginput);
+        array_push(self::$log, $loginput);
     }
     public static function returnLog(){
         echo(json_encode(self::$log));
