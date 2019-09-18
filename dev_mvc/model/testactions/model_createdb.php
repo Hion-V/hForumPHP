@@ -8,8 +8,17 @@ if(isset($_POST['auth'])){
         createDB();
     }
 }else{
-    TestUtils::log('you have no authorization to do that');
+    TestUtils::log('you have no authorization to do that', 'FAILURE');
 }
+TestUtils::returnLog();
+
+
+
+
+
+
+
+
 
 function createDB(){
     try{
