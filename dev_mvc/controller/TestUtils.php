@@ -11,8 +11,8 @@ class TestUtils{
         echo(json_encode($loginput));
         if($addComma){
             echo(',');
+            echo("\n");
         }
-        echo("\n");
         return;
     }
     public static function returnLog(){
