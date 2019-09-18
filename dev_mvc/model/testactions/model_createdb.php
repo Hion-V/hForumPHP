@@ -1,10 +1,14 @@
 <?php
+require_once('./controller/Testutils.php');
+
+
+
 if(isset($_POST['auth'])){
     if($_POST['auth'] == getenv('ADMIN_ACTION_KEY')){
         createDB();
     }
 }else{
-    echol('you have no authorization to do that');
+    TestUtils::log('you have no authorization to do that');
 }
 
 function createDB(){
@@ -33,11 +37,11 @@ function createDB(){
     //db exists
     if($query->fetchColumn() != 1){
         $query = $con->query("CREATE DATABASE $db");
-        echol('db doesnt exist');
+        TestUtils::log('db doesnt exist');
     }
     //db doesn't exist
     else{
-        echol('db already exists, skipping');
+        TestUtils::log('db already exists, skipping');
     }
     //select db
     $con->exec("USE $db");
@@ -45,10 +49,10 @@ function createDB(){
     
     $table = 'users';
     $query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table'");
-    echol($query->fetchColumn());
+    TestUtils::log($query->fetchColumn());
     //table doesn't exist
     if($query->fetchColumn() != 4){
-        echol('table doesnt exist');
+        TestUtils::log('table doesnt exist');
         $query = $con->query(
             "	CREATE TABLE `users` (
             `ID` int(11) NOT NULL AUTO_INCREMENT,
@@ -62,17 +66,17 @@ function createDB(){
             `active` tinyint(1) DEFAULT '0',
             PRIMARY KEY (`ID`)
            ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
-        echol("created table $table");
+        TestUtils::log("created table $table");
     }
     //table exists
     else{
-        echol("table $table already exists, skipping");
+        TestUtils::log("table $table already exists, skipping");
     }
         
     $table = 'usersessions';
     $query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table'");
     if($query->fetchColumn() != 4){
-        echol('table doesnt exist');
+        TestUtils::log('table doesnt exist');
         $query = $con->query(
             "	CREATE TABLE `usersessions` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -81,17 +85,17 @@ function createDB(){
         `expires` datetime NOT NULL,
         PRIMARY KEY (`id`)
         ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
-        echol("created table $table");
+        TestUtils::log("created table $table");
     }
     //table exists
     else{
-        echol("table $table already exists, skipping");
+        TestUtils::log("table $table already exists, skipping");
     }
     
     $table = 'email_activation_keys';
     $query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table'");
     if($query->fetchColumn() != 4){
-        echol('table doesnt exist');
+        TestUtils::log('table doesnt exist');
         $query = $con->query(
             "	CREATE TABLE `email_activation_keys` (
             `id` int(16) NOT NULL AUTO_INCREMENT,
@@ -99,17 +103,17 @@ function createDB(){
             `activationkey` varchar(256) NOT NULL,
             PRIMARY KEY (`id`)
            ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
-        echol("created table $table");
+        TestUtils::log("created table $table");
         }
         //table exists
         else{
-            echol("table $table already exists, skipping");
+            TestUtils::log("table $table already exists, skipping");
         }
         
         $table = 'board';
         $query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table'");
         if($query->fetchColumn() != 4){
-            echol('table doesnt exist');
+            TestUtils::log('table doesnt exist');
             $query = $con->query(
                 "	CREATE TABLE `board` (
             `ID` int(16) NOT NULL AUTO_INCREMENT,
@@ -118,18 +122,18 @@ function createDB(){
             `permLevel` int(16) NOT NULL DEFAULT '0',
             PRIMARY KEY (`ID`)
            ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
-        echol("created table $table");
+        TestUtils::log("created table $table");
     }
     //table exists
     else{
-        echol("table $table already exists, skipping");
+        TestUtils::log("table $table already exists, skipping");
     }
     
     
     $table = 'thread';
     $query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table'");
     if($query->fetchColumn() != 4){
-        echol('table doesnt exist');
+        TestUtils::log('table doesnt exist');
         $query = $con->query(
             "	CREATE TABLE `thread` (
             `ID` int(16) NOT NULL AUTO_INCREMENT,
@@ -140,17 +144,17 @@ function createDB(){
             `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (`ID`)
            ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
-        echol("created table $table");
+        TestUtils::log("created table $table");
         }
         //table exists
         else{
-        echol("table $table already exists, skipping");
+        TestUtils::log("table $table already exists, skipping");
     }
     
     $table = 'reply';
     $query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table'");
     if($query->fetchColumn() != 4){
-        echol('table doesnt exist');
+        TestUtils::log('table doesnt exist');
         $query = $con->query(
             "	CREATE TABLE `reply` (
             `ID` int(16) NOT NULL AUTO_INCREMENT,
@@ -160,17 +164,18 @@ function createDB(){
             `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (`ID`)
            ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
-        echol("created table $table");
+        TestUtils::log("created table $table");
         }
         //table exists
         else{
-            echol("table $table already exists, skipping");
+            TestUtils::log("table $table already exists, skipping");
         }
         
         
         
     }
     catch(PDOException $e){
+        TestUtils::log('PDO ERROR', "FAILURE");
         die("pdo exception, cannot connect to sql:<br> $e");
     }
 }
