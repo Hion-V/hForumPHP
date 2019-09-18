@@ -68,11 +68,11 @@ class MVCController{
 		//check if testaction is valid
 		if(file_exists($this->testaction)){
 
-			echo('"output": [');
+			echo('{"output": [');
 			//execute testaction
 			include_once($this->testaction);
 			TestUtils::log('End of output', "OK", false);
-			echo("]");
+			echo("]}");
 		}
     	
     }
