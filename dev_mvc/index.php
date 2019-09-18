@@ -1,8 +1,5 @@
 <?php
-function echol($output)
-{
-    echo $output."\n";
-}
+require_once('./controller/TestUtils.php');
 
 //date_default_timezone_set('Europe/Amsterdam');
 require_once('./controller/MVCController.php');
@@ -13,4 +10,5 @@ $mvcController->executeModel();
 if(!isset($_POST['testaction'])){
     include_once("./view/content_pagetemplate.php");
 }
+
 ?>

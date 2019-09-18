@@ -1,5 +1,5 @@
 <?php
-require_once('./controller/TestUtils.php');
+
 
 
 
@@ -10,7 +10,6 @@ if(isset($_POST['auth'])){
 }else{
     TestUtils::log('you have no authorization to do that', 'FAILURE');
 }
-TestUtils::returnLog();
 
 
 
