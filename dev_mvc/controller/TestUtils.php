@@ -4,7 +4,7 @@
 class TestUtils{
     public static $log = [];
     public static $status;
-    public static function log($output, $status = "OK",$addComma = false){
+    public static function log($output, $status = "OK",$addComma = true){
         $loginput = [];
         $loginput['message'] = $output;
         $loginput['status'] = $status;

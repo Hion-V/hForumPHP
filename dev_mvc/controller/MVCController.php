@@ -71,6 +71,7 @@ class MVCController{
 			echo('"output": [');
 			//execute testaction
 			include_once($this->testaction);
+			TestUtils::log('End of output', "OK", false);
 			echo("]");
 		}
     	
