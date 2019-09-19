@@ -30,7 +30,7 @@ class TestAction{
     }
     public static function returnLogAsText(){
         for($i = 0; $i<sizeof(self::$log); $i++){
-            echo("[".self::$log[$i]['stats']."] ".self::$log[$i]['message']);
+            echo("[".self::$log[$i]['stats']."] ".self::$log[$i]['message']."\n");
         }
     }
 }
