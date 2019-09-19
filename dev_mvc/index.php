@@ -1,4 +1,12 @@
 <?php
+register_shutdown_function(function() {
+    $error = error_get_last();
+    if ($error['type'] == E_ERROR) {
+        header('HTTP/1.1 500 Internal Server Error');
+    }
+});
+
+
 require_once('./controller/TestUtils.php');
 //date_default_timezone_set('Europe/Amsterdam');
 require_once('./controller/MVCController.php');
