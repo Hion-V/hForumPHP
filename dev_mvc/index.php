@@ -1,4 +1,5 @@
 <?php
+require_once('./controller/TestUtils.php');
 //date_default_timezone_set('Europe/Amsterdam');
 require_once('./controller/MVCController.php');
 require_once('./controller/UserSession.php');
@@ -8,4 +9,5 @@ $mvcController->executeModel();
 if(!isset($_POST['testaction'])){
     include_once("./view/content_pagetemplate.php");
 }
+
 ?>
