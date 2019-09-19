@@ -33,7 +33,7 @@ class MVCController{
 
 
 		if(isset($_POST['testaction'])){
-			$this->testaction = "./model/testactions/model_".$_POST['testaction'].".php";
+			$this->testaction = "./model/testactions/TA_".$_POST['testaction'].".php";
 		}
 
 
@@ -67,12 +67,10 @@ class MVCController{
 
 		//check if testaction is valid
 		if(file_exists($this->testaction)){
-
-			echo('{"output": [');
 			//execute testaction
-			include_once($this->testaction);
-			TestUtils::log('End of output', "OK", false);
-			echo("]}");
+			require_once($this->testaction);
+			$testactionClassname = "TA_".$_POST['testaction'];
+			$testactionInstance = new $testactionClassname();
 		}
     	
     }
