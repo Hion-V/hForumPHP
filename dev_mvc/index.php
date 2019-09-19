@@ -16,5 +16,6 @@ $mvcController->executeModel();
 if(!isset($_POST['testaction'])){
     include_once("./view/content_pagetemplate.php");
 }
+a
 http_response_code(200);
 ?>
