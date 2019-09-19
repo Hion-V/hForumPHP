@@ -10,7 +10,6 @@ class TestAction{
         }else{
             self::logMessage('you have no authorization to do that', 'FAILURE');
         }
-        self::returnLogAsText();
     }
     function execute(){
         self::logMessage('Unoverridden execute called on TestAction: '.$this, 'FAILURE');

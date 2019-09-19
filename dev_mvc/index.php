@@ -45,4 +45,5 @@ if(!isset($_POST['testaction'])){
 }
 require_once('aaaadea');
 //http_response_code(200);
+TestAction::returnLogAsText();
 ?>
