@@ -6,10 +6,6 @@ register_shutdown_function(function() {
             http_response_code(500);
             header('HTTP/1.1 500 Internal Server Error');
             break;
-        case E_WARNING:
-            http_response_code(500);
-            header('HTTP/1.1 500 Internal Server Error');
-            break;
         case E_PARSE:
             http_response_code(500);
             header('HTTP/1.1 500 Internal Server Error');
@@ -18,23 +14,11 @@ register_shutdown_function(function() {
             http_response_code(500);
             header('HTTP/1.1 500 Internal Server Error');
             break;
-        case E_CORE_WARNING:
-            http_response_code(500);
-            header('HTTP/1.1 500 Internal Server Error');
-            break;
         case E_COMPILE_ERROR:
             http_response_code(500);
             header('HTTP/1.1 500 Internal Server Error');
             break;
-        case E_COMPILE_WARNING:
-            http_response_code(500);
-            header('HTTP/1.1 500 Internal Server Error');
-            break;
         case E_USER_ERROR:
-            http_response_code(500);
-            header('HTTP/1.1 500 Internal Server Error');
-            break;
-        case E_USER_WARNING:
             http_response_code(500);
             header('HTTP/1.1 500 Internal Server Error');
             break;
@@ -59,6 +43,6 @@ $mvcController->executeModel();
 if(!isset($_POST['testaction'])){
     include_once("./view/content_pagetemplate.php");
 }
-a
+require_once('aaaadea');
 //http_response_code(200);
 ?>
