@@ -1,10 +1,43 @@
 <?php
 register_shutdown_function(function() {
     $error = error_get_last();
-    if ($error['type'] == E_ERROR || $error['type'] == E_PARSE || $error['type'] == E_CORE_ERROR || $error['type'] == E_COMPILE_ERROR || $error['type'] == E_RECOVERABLE_ERROR) {
+    switch($error['type']){
+        case E_ERROR:
+            http_response_code(500);
+            break;
+        case E_WARNING:
+            http_response_code(500);
+            break;
+        case E_PARSE:
+            http_response_code(500);
+            break;
+        case E_CORE_ERROR:
+            http_response_code(500);
+            break;
+        case E_CORE_WARNING:
+            http_response_code(500);
+            break;
+        case E_COMPILE_ERROR:
+            http_response_code(500);
+            break;
+        case E_COMPILE_WARNING:
+            http_response_code(500);
+            break;
+        case E_USER_ERROR:
+            http_response_code(500);
+            break;
+        case E_USER_WARNING:
+            http_response_code(500);
+            break;
+        case E_RECOVERABLE_ERROR:
+            http_response_code(500);
+            break;
+    }
+
+    /* if ($error['type'] == E_ERROR || $error['type'] == E_PARSE || $error['type'] == E_CORE_ERROR || $error['type'] == E_COMPILE_ERROR || $error['type'] == E_RECOVERABLE_ERROR) {
         header('HTTP/1.1 500 Internal Server Error');
         http_response_code(500);
-    }
+    } */
 });
 require_once('./model/testactions/TestAction.php');
 //date_default_timezone_set('Europe/Amsterdam');
