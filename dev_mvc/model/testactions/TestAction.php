@@ -3,7 +3,7 @@ class TestAction{
     function TestAction(){
         if(isset($_POST['auth'])){
             if($_POST['auth'] == getenv('ADMIN_ACTION_KEY')){
-                execute();
+                $this->execute();
             }else{
                 self::logMessage('you have no authorization to do that', 'FAILURE');
             }
