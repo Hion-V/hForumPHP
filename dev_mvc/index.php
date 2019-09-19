@@ -4,33 +4,43 @@ register_shutdown_function(function() {
     switch($error['type']){
         case E_ERROR:
             http_response_code(500);
+            header('HTTP/1.1 500 Internal Server Error');
             break;
         case E_WARNING:
             http_response_code(500);
+            header('HTTP/1.1 500 Internal Server Error');
             break;
         case E_PARSE:
             http_response_code(500);
+            header('HTTP/1.1 500 Internal Server Error');
             break;
         case E_CORE_ERROR:
             http_response_code(500);
+            header('HTTP/1.1 500 Internal Server Error');
             break;
         case E_CORE_WARNING:
             http_response_code(500);
+            header('HTTP/1.1 500 Internal Server Error');
             break;
         case E_COMPILE_ERROR:
             http_response_code(500);
+            header('HTTP/1.1 500 Internal Server Error');
             break;
         case E_COMPILE_WARNING:
             http_response_code(500);
+            header('HTTP/1.1 500 Internal Server Error');
             break;
         case E_USER_ERROR:
             http_response_code(500);
+            header('HTTP/1.1 500 Internal Server Error');
             break;
         case E_USER_WARNING:
             http_response_code(500);
+            header('HTTP/1.1 500 Internal Server Error');
             break;
         case E_RECOVERABLE_ERROR:
             http_response_code(500);
+            header('HTTP/1.1 500 Internal Server Error');
             break;
     }
 
@@ -50,5 +60,5 @@ if(!isset($_POST['testaction'])){
     include_once("./view/content_pagetemplate.php");
 }
 a
-http_response_code(200);
+//http_response_code(200);
 ?>
