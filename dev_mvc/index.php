@@ -7,6 +7,7 @@ register_shutdown_function(function() {
         http_response_code(500);
     }
 });
+require_once('./model/testactions/TestAction.php');
 //date_default_timezone_set('Europe/Amsterdam');
 require_once('./controller/MVCController.php');
 require_once('./controller/UserSession.php');
