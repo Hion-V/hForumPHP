@@ -1,7 +1,7 @@
 <?php
 class TA_PopulateDB extends TestAction{
     function TA_PopulateDB(){
-        parent();
+        parent.__construct();
     }
     function execute(){
         try{

@@ -1,7 +1,7 @@
 <?php
 class TA_CreateDB extends TestAction{
     function TA_CreateDB(){
-        parent();
+        parent.__construct();
     }
     function execute(){
         try{
