@@ -21,7 +21,7 @@ class TestAction{
         $loginput = [];
         $loginput['message'] = $message;
         $loginput['status'] = $status;
-        arr_push(self::log, $loginput);
+        arr_push(self::$log, $loginput);
         return;
     }
     public static function returnLogAsJson(){
