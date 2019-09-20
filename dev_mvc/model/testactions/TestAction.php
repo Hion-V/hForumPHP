@@ -35,6 +35,6 @@ class TestAction{
                 break;
             }
         }
-        echo('<div id="test_exitstatus">ACTION SUCCESSFUL</div>')
+        echo('<div id="test_exitstatus">ACTION SUCCESSFUL</div>');
     }
 }
