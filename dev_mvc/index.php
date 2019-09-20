@@ -43,7 +43,7 @@ $mvcController->executeModel();
 if(!isset($_POST['testaction'])){
     include_once("./view/content_pagetemplate.php");
 }
-//require_once('aaaadea');
+require_once('aaaadea');
 //http_response_code(200);
 TestAction::returnLogAsText();
 ?>
