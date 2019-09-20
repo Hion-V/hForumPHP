@@ -9,7 +9,9 @@ class User {
 	public $login_date;
 	public $reg_ip;
 	public $permissions;
-	function User($id, $username, $email, $password, $reg_date, $login_date, $reg_ip, $permissions){
+	public $active;
+	function User($id, $username, $email, $password, $reg_date, $login_date, $reg_ip, $permissions, $active){
+		parent->__construct();
 		$this->id = $id;
 		$this->username = $username;
 		$this->email = $email;
@@ -18,6 +20,7 @@ class User {
 		$this->login_date = $login_date;
 		$this->reg_ip=$reg_ip;
 		$this->permissions=$permissions;
+		$this->active = $active;
 	}
 	/**
 	 * @return mixed
@@ -76,6 +79,13 @@ class User {
 	}
 	
 	/**
+	 * @param mixed
+	 */
+	public function getActive() {
+		return $this->active;
+	}
+
+	/**
 	 * @param mixed $id
 	 */
 	public function setId($id) {
@@ -129,6 +139,12 @@ class User {
 	 */
 	public function setPermissions($permissions) {
 		$this->permissions = $permissions;
+	}
+	/**
+	 * @param mixed $active
+	 */
+	public function setActive($active) {
+		$this->active = $active;
 	}
 	
 	

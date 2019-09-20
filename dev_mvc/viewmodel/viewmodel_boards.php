@@ -33,7 +33,7 @@ foreach($usersTable as $row){
 		}
 	}
 	if(!$skipUser){
-		array_push($users, new User($row['ID'], $row['username'], $row['email'], $row['password'], $row['reg_date'], $row['login_date'], $row['reg_ip'], $row['permissions']));
+		array_push($users, $row);
 	}
 }
 

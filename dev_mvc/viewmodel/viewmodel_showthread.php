@@ -19,15 +19,12 @@ $replies = [ ];
 foreach ($replyData as $row) {
 	$reply = new Reply($row['ID'], $row['thread_ID'], $row['users_ID'], $row['content'], $row['date_created']);
 	array_push($replies, $reply);
-	$replyOwnerData = DBUser::getUserByUID($reply->getUserID());
-	$replyOwner = new User($replyOwnerData['ID'], $replyOwnerData['username'], $replyOwnerData['email'], $replyOwnerData['password'], $replyOwnerData['reg_date'], $replyOwnerData['login_date'], $replyOwnerData['reg_ip'], $replyOwnerData['permissions']);
+	$replyOwner = DBUser::getUserByUID($reply->getUserID());
 	$reply->setOwner($replyOwner);
 }
 
 // get the person who started the thread
-$threadOwnerData = DBUser::getUserByUID($thread->getUserID());
-// create user object
-$threadOwner = new User($threadOwnerData['ID'], $threadOwnerData['username'], $threadOwnerData['email'], $threadOwnerData['password'], $threadOwnerData['reg_date'], $threadOwnerData['login_date'], $threadOwnerData['reg_ip'], $threadOwnerData['permissions']);
+$threadOwner = DBUser::getUserByUID($thread->getUserID());
 // assign owner and replies
 $thread->setReplies($replies);
 $thread->setOwner($threadOwner);

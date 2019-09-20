@@ -3,7 +3,7 @@ class DBUser extends Database
 {
 	static function isUserActive($uid){
 		$user = self::getUserByUID($uid);
-		if($user['active']){
+		if($user->active){
 			return true;
 		}
 		else{
@@ -15,7 +15,9 @@ class DBUser extends Database
 		$query = $con->prepare("SELECT * FROM users WHERE ID = :uid");
 		$query->bindParam(":uid", $uid);
 		$query->execute();
-		return $query->fetch(PDO::FETCH_BOTH);
+		$result = $query->fetch(PDO::FETCH_BOTH);
+		$user = new User($result['ID'], $result['username'], $result['email'], $result['password'], $result['reg_date'], $result['login_date'], $result['reg_ip'], $result['permissions']);
+		return $user;
 	}
 	
 	
