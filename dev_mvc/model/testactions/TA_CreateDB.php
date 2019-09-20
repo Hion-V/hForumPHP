@@ -53,7 +53,7 @@ class TA_CreateDB extends TestAction{
                 `email` varchar(256) NOT NULL,
                 `password` varchar(256) NOT NULL,
                 `reg_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                `logMessagein_date` datetime NOT NULL,
+                `login_date` datetime NOT NULL,
                 `reg_ip` varchar(256) NOT NULL,
                 `permissions` int(11) NOT NULL DEFAULT '-1',
                 `active` tinyint(1) DEFAULT '0',
