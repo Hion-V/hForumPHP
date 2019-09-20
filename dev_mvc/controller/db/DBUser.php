@@ -17,7 +17,7 @@ class DBUser extends Database
 		$query->bindParam(":uid", $uid);
 		$query->execute();
 		$result = $query->fetch(PDO::FETCH_BOTH);
-		$user = new User($result['ID'], $result['username'], $result['email'], $result['password'], $result['reg_date'], $result['login_date'], $result['reg_ip'], $result['permissions']);
+		$user = new User($result['ID'], $result['username'], $result['email'], $result['password'], $result['reg_date'], $result['login_date'], $result['reg_ip'], $result['permissions'], $result['active']);
 		return $user;
 	}
 	
