@@ -11,7 +11,7 @@ class User {
 	public $permissions;
 	public $active;
 	function User($id, $username, $email, $password, $reg_date, $login_date, $reg_ip, $permissions, $active){
-		parent->__construct();
+		parent::__construct();
 		$this->id = $id;
 		$this->username = $username;
 		$this->email = $email;
