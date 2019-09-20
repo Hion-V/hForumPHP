@@ -29,7 +29,12 @@ class TestAction{
     }
     public static function returnLogAsText(){
         for($i = 0; $i<sizeof(self::$log); $i++){
-            echo("[".self::$log[$i]['stats']."] ".self::$log[$i]['message']."\n");
+            echo("[".self::$log[$i]['status']."] ".self::$log[$i]['message']."\n");
+            if(self::$log[$i]['status'] == 'FAILURE'){
+                echo('<div id="test_exitstatus">ACTION FAILED</div>');
+                break;
+            }
         }
+        echo('<div id="test_exitstatus">ACTION SUCCESSFUL</div>')
     }
 }
