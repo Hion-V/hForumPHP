@@ -28,7 +28,7 @@ foreach($threadsTable as $row)
 foreach($usersTable as $row){
 	$skipUser = false;
 	foreach($users as $user){
-		if($row['ID'] == $user->getId()){
+		if($row->getId() == $user->getId()){
 			$skipUser = true;
 		}
 	}
