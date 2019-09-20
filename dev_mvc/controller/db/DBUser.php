@@ -2,15 +2,6 @@
 require_once('./model/forum/User.php');
 class DBUser extends Database
 {
-	static function isUserActive($uid){
-		$user = self::getUserByUID($uid);
-		if($user->active){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
 	static function getUserByUID($uid){
 		$con = self::connectToDB();
 		$query = $con->prepare("SELECT * FROM users WHERE ID = :uid");

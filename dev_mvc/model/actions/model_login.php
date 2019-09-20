@@ -8,10 +8,11 @@ $skipoverride = false;
 if(!UserSession::isUserSignedIn()){
 	if(HUtils::issetPost(['email','password'])){
 		if(DBUser::isLoginValid($_POST['email'], $_POST['password'])){
-			//obtain UID
+			//obtain UID 
 			$uid = DBUser::getUID($_POST['email'], $_POST['password']);
 			if($uid != -1){
-				if(DBUser::isUserActive($uid)){
+				//check if user account has been activated
+				if(DBUser::getUserByUID($uid)->getActive()){
 					//obtain username
 					//$username = DBUser::getUsername($uid);
 					//gen unique session token
