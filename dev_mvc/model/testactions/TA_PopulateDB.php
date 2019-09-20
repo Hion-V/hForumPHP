@@ -29,8 +29,9 @@ class TA_PopulateDB extends TestAction{
             
             
             self::logMessage('table doesnt exist', "OK");
-            $query = $con->query("INSERT INTO users (username, email, password, login_date, reg_ip, active) VALUES ( 'andreas', 'andreas@andreas.nl', 'jenk', '2019-01-01 14:35:33', '192.168.0.2', 1),
-                                                                                                                   ( 'bram', 'bram@bram.nl', 'jenk', '2019-01-01 14:35:33', '192.168.0.1', 1)");
+            $query = $con->query("INSERT INTO users (`username`, `email`, `password`, `login_date`, `reg_ip`, `active`) VALUES 
+                                                    ( 'andreas', 'andreas@andreas.nl', 'jenk', '2019-01-01 14:35:33', '192.168.0.2', 1),
+                                                    ( 'bram', 'bram@bram.nl', 'jenk', '2019-01-01 14:35:33', '192.168.0.1', 1)");
             self::logMessage("created test users", "OK");
             $query = $con->query("INSERT INTO `board` (`name`, `description`, `permLevel`) VALUES ('General Discussion', 'Plek om algemene discussie te voeren.', '0'), 
                                                                                                   ('Off Topic', 'Voor alle irrelevante zooi.', '0')");
