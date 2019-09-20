@@ -1,4 +1,5 @@
 <?php
+require_once('./model/forum/User.php');
 class DBUser extends Database
 {
 	static function isUserActive($uid){
