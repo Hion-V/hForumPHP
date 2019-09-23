@@ -1,8 +1,8 @@
 <?php
 //Include classes
-require_once(ROOT_DIR."./controller/db/Database.php");
-require_once(ROOT_DIR."./controller/db/DBUser.php");
-require_once(ROOT_DIR."./controller/HUtils.php");
+require_once(ROOT_DIR."/controller/db/Database.php");
+require_once(ROOT_DIR."/controller/db/DBUser.php");
+require_once(ROOT_DIR."/controller/HUtils.php");
 if(HUtils::issetPost(['email', 'pass', 'pass2', 'name'])){
     $email = $_POST['email'];
     $pass = $_POST['pass'];

@@ -1,5 +1,5 @@
 <?php
-require_once ROOT_DIR.'./model/forum/Thread.php';
+require_once ROOT_DIR.'/model/forum/Thread.php';
 class DBThread extends Database {
 	static function getThreadByID($id){
 		$con = self::connectToDB();

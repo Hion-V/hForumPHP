@@ -1,5 +1,5 @@
 <?php
-require_once(ROOT_DIR.'./model/forum/User.php');
+require_once(ROOT_DIR.'/model/forum/User.php');
 class DBUser extends Database
 {
 	static function getUserByUID($uid){

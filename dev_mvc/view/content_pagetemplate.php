@@ -1,5 +1,5 @@
 <?php 
-require_once(ROOT_DIR."./controller/MVCController.php");
+require_once(ROOT_DIR."/controller/MVCController.php");
 require_once("index.php");
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ require_once("index.php");
 	<body>
 		<header class="row">
 <?php 
-include_once(ROOT_DIR."./view/webcontent/content_header.php");
+include_once(ROOT_DIR."/view/webcontent/content_header.php");
 ?>
 		</header>
 		<div class="main">

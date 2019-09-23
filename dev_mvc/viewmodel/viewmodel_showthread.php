@@ -1,9 +1,9 @@
 <?php
-require_once ROOT_DIR.'./controller/db/DBThread.php';
-require_once ROOT_DIR.'./controller/db/DBReply.php';
-require_once ROOT_DIR.'./controller/db/DBUser.php';
-require_once ROOT_DIR.'./model/forum/User.php';
-require_once ROOT_DIR.'./model/forum/Reply.php';
+require_once ROOT_DIR.'/controller/db/DBThread.php';
+require_once ROOT_DIR.'/controller/db/DBReply.php';
+require_once ROOT_DIR.'/controller/db/DBUser.php';
+require_once ROOT_DIR.'/model/forum/User.php';
+require_once ROOT_DIR.'/model/forum/Reply.php';
 if(isset($_GET['thread'])) {
 	$threadid = $_GET['thread'];
 } else {

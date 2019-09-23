@@ -12,28 +12,28 @@ class MVCController{
     	self::$mvcController = $this;
     	//prepare current view and view model
     	if(isset($_GET['p']) && $_GET['p'] != ''){
-    		$this->view = ROOT_DIR."./view/webcontent/content_".$_GET['p'].".php";
-    		$this->viewmodel = ROOT_DIR."./viewmodel/viewmodel_".$_GET['p'].".php";
+    		$this->view = ROOT_DIR."/view/webcontent/content_".$_GET['p'].".php";
+    		$this->viewmodel = ROOT_DIR."/viewmodel/viewmodel_".$_GET['p'].".php";
     	}
     	else{
-    		$this->view = ROOT_DIR."./view/webcontent/content_home.php";
-    		$this->viewmodel = ROOT_DIR."./viewmodel/viewmodel_home.php";
+    		$this->view = ROOT_DIR."/view/webcontent/content_home.php";
+    		$this->viewmodel = ROOT_DIR."/viewmodel/viewmodel_home.php";
     	}
     	
     	//prepare current action model
     	if(isset($_POST['action'])){
-    		$this->model = ROOT_DIR."./model/actions/model_".$_POST['action'].".php";
+    		$this->model = ROOT_DIR."/model/actions/model_".$_POST['action'].".php";
     	}
     	else if(isset($_GET['action'])){
-    		$this->model = ROOT_DIR."./model/actions/model_".$_GET['action'].".php";
+    		$this->model = ROOT_DIR."/model/actions/model_".$_GET['action'].".php";
     	}
     	else{
-    		$this->model = ROOT_DIR."./model/actions/model_empty.php";
+    		$this->model = ROOT_DIR."/model/actions/model_empty.php";
 		}
 
 
 		if(isset($_POST['testaction'])){
-			$this->testaction = ROOT_DIR."./model/testactions/TA_".$_POST['testaction'].".php";
+			$this->testaction = ROOT_DIR."/model/testactions/TA_".$_POST['testaction'].".php";
 		}
 
 
@@ -44,8 +44,8 @@ class MVCController{
     }
     function overrideView($view_target):void
     {
-    	$this->view = ROOT_DIR."./view/webcontent/content_".$view_target.".php";
-    	$this->viewmodel = ROOT_DIR."./viewmodel/viewmodel_".$view_target.".php";
+    	$this->view = ROOT_DIR."/view/webcontent/content_".$view_target.".php";
+    	$this->viewmodel = ROOT_DIR."/viewmodel/viewmodel_".$view_target.".php";
     	$this->viewOverridden = true;
     }
     function executeAction():void
@@ -102,7 +102,7 @@ class MVCController{
     		include_once($this->view);
     	}
     	else{
-    		include_once(ROOT_DIR."./view/webcontent/content_404.php");
+    		include_once(ROOT_DIR."/view/webcontent/content_404.php");
     		echo("view: ".$this->view." not found.");
     	}
     }

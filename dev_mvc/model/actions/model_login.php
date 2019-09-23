@@ -1,9 +1,9 @@
 <?php
 $debuginfo = false;
-require_once(ROOT_DIR."./controller/UserSession.php");
-require_once(ROOT_DIR."./controller/db/Database.php");
-require_once(ROOT_DIR."./controller/db/DBUser.php");
-require_once(ROOT_DIR."./controller/HUtils.php");
+require_once(ROOT_DIR."/controller/UserSession.php");
+require_once(ROOT_DIR."/controller/db/Database.php");
+require_once(ROOT_DIR."/controller/db/DBUser.php");
+require_once(ROOT_DIR."/controller/HUtils.php");
 $skipoverride = false;
 if(!UserSession::isUserSignedIn()){
 	if(HUtils::issetPost(['email','password'])){

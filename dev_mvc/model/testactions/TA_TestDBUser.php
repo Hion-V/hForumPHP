@@ -1,6 +1,6 @@
 <?php
-require_once(ROOT_DIR.'./controller/db/DBUser.php');
-require_once(ROOT_DIR.'./model/forum/User.php');
+require_once(ROOT_DIR.'/controller/db/DBUser.php');
+require_once(ROOT_DIR.'/model/forum/User.php');
 class TA_TestDBUser extends TestAction{
     public function __construct()
     {
