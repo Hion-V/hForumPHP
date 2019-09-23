@@ -7,7 +7,6 @@ require_once(ROOT_DIR."./controller/HUtils.php");
 $skipoverride = false;
 if(!UserSession::isUserSignedIn()){
 	if(HUtils::issetPost(['email','password'])){
-		$user = 
 		if(DBUser::isLoginValid($_POST['email'], $_POST['password'])){
 			//obtain UID 
 			$uid = DBUser::getUID($_POST['email'], $_POST['password']);
