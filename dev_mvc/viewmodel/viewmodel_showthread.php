@@ -1,17 +1,16 @@
 <?php
-require_once './controller/db/DBThread.php';
-require_once './controller/db/DBReply.php';
-require_once './controller/db/DBUser.php';
-require_once './model/forum/User.php';
-require_once './model/forum/Reply.php';
+require_once ROOT_DIR.'./controller/db/DBThread.php';
+require_once ROOT_DIR.'./controller/db/DBReply.php';
+require_once ROOT_DIR.'./controller/db/DBUser.php';
+require_once ROOT_DIR.'./model/forum/User.php';
+require_once ROOT_DIR.'./model/forum/Reply.php';
 if(isset($_GET['thread'])) {
 	$threadid = $_GET['thread'];
 } else {
 	$threadid = - 1;
 }
-// Get what we need from the database
-$threadData = DBThread::getThreadByID($threadid);
-$thread = new Thread($threadData['ID'], $threadData['users_ID'], $threadData['board_ID'], $threadData['title'], $threadData['text'], $threadData['date_created']);
+// Get what we need from the databas 
+$thread = DBThread::getThreadByID($threadid);
 $replyData = DBReply::getRepliesByThreadID($threadid);
 // array to store our reply objects in
 $replies = [ ];
@@ -31,4 +30,3 @@ $thread->setOwner($threadOwner);
 
 // Store data so it can be used in the view
 MVCController::$viewData['thread'] = $thread;
-?>

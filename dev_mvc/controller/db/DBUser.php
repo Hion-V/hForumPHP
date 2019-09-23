@@ -1,5 +1,5 @@
 <?php
-require_once('./model/forum/User.php');
+require_once(ROOT_DIR.'./model/forum/User.php');
 class DBUser extends Database
 {
 	static function getUserByUID($uid){
@@ -10,6 +10,23 @@ class DBUser extends Database
 		$result = $query->fetch(PDO::FETCH_BOTH);
 		$user = new User($result['ID'], $result['username'], $result['email'], $result['password'], $result['reg_date'], $result['login_date'], $result['reg_ip'], $result['permissions'], $result['active']);
 		return $user;
+	}
+	static function getUserByEmail($email){
+		$con = self::connectToDB();
+		$query = $con->prepare("SELECT * FROM users WHERE email = :email");
+		$query->bindParam(":email", $email);
+		$query->execute();
+		$result = $query->fetch(PDO::FETCH_BOTH);
+		$user = new User($result['ID'], $result['username'], $result['email'], $result['password'], $result['reg_date'], $result['login_date'], $result['reg_ip'], $result['permissions'], $result['active']);
+		if($query->rowCount() == 1){
+			//Email adres is niet in gebruik, return false
+			return $user;
+		}
+		else{
+			//Email is al in gebruik of komt meer dan een keer voor. Beide gevallen zijn een probleem dus return true.
+			trigger_error("Multiple users for email $email returned by DB, value should be unique", E_USER_ERROR);
+		}
+		
 	}
 	
 	

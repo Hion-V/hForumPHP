@@ -1,4 +1,5 @@
 <?php
+define ('ROOT_DIR', __DIR__);
 register_shutdown_function(function() {
     $error = error_get_last();
     switch($error['type']){
@@ -33,15 +34,15 @@ register_shutdown_function(function() {
         http_response_code(500);
     } */
 });
-require_once('./model/testactions/TestAction.php');
+require_once(ROOT_DIR.'./model/testactions/TestAction.php');
 //date_default_timezone_set('Europe/Amsterdam');
-require_once('./controller/MVCController.php');
-require_once('./controller/UserSession.php');
+require_once(ROOT_DIR.'./controller/MVCController.php');
+require_once(ROOT_DIR.'./controller/UserSession.php');
 session_start();
 $mvcController = new MVCController();
 $mvcController->executeModel();
 if(!isset($_POST['testaction'])){
-    include_once("./view/content_pagetemplate.php");
+    include_once(ROOT_DIR."./view/content_pagetemplate.php");
 }
 //require_once('aaaadea');
 //http_response_code(200);

@@ -1,9 +1,9 @@
 <?php 
-require_once('./controller/UserSession.php');
+require_once(ROOT_DIR.'./controller/UserSession.php');
 if(UserSession::isUserSignedIn()){
-	include('./view/webcontent/header/header_signedin.php');
+	include(ROOT_DIR.'./view/webcontent/header/header_signedin.php');
 }
 else{
-	include('./view/webcontent/header/header_signedout.php');
+	include(ROOT_DIR.'./view/webcontent/header/header_signedout.php');
 }
 ?>

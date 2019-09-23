@@ -1,5 +1,5 @@
 <?php
-require_once './controller/db/Database.php';
+require_once ROOT_DIR.'./controller/db/Database.php';
 
 class DBReply extends Database{
 	static function createReply($uid, $threadID, $content){

@@ -1,6 +1,6 @@
 <?php
-require_once './controller/db/Database.php';
-require_once './controller/db/DBUser.php';
+require_once ROOT_DIR.'./controller/db/Database.php';
+require_once ROOT_DIR.'./controller/db/DBUser.php';
 $key = '';
 if(isset($_GET['key'])){
     $key = $_GET['key'];

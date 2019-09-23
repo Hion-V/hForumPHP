@@ -1,6 +1,6 @@
 <?php
 class TestAction{
-    function TestAction(){
+    function __construct(){
         if(isset($_POST['auth'])){
             if($_POST['auth'] == getenv('ADMIN_ACTION_KEY')){
                 $this->execute();
@@ -32,7 +32,7 @@ class TestAction{
             echo("[".self::$log[$i]['status']."] ".self::$log[$i]['message']."\n");
             if(self::$log[$i]['status'] == 'FAILURE'){
                 echo('<div id="test_exitstatus">ACTION FAILED</div>');
-                break;
+                return;
             }
         }
         echo('<div id="test_exitstatus">ACTION SUCCESSFUL</div>');

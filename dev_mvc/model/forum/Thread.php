@@ -59,6 +59,7 @@ class Thread {
 	public function setOwner($owner) {
 		$this->owner = $owner;
 	}
+	
 	public function getId():int {
 		return $this->id;
 	}

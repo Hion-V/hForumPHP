@@ -10,7 +10,7 @@ class User {
 	public $reg_ip;
 	public $permissions;
 	public $active;
-	function User($id, $username, $email, $password, $reg_date, $login_date, $reg_ip, $permissions, $active){
+	function __construct($id, $username, $email, $password, $reg_date, $login_date, $reg_ip, $permissions, $active){
 		$this->id = $id;
 		$this->username = $username;
 		$this->email = $email;
@@ -24,28 +24,28 @@ class User {
 	/**
 	 * @return mixed
 	 */
-	public function getId() {
+	public function getId():int {
 		return $this->id;
 	}
 	
 	/**
 	 * @return mixed
 	 */
-	public function getUsername() {
+	public function getUsername():string {
 		return $this->username;
 	}
 	
 	/**
 	 * @return mixed
 	 */
-	public function getEmail() {
+	public function getEmail():string {
 		return $this->email;
 	}
 	
 	/**
 	 * @return mixed
 	 */
-	public function getPassword() {
+	public function getPassword():string {
 		return $this->password;
 	}
 	
