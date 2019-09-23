@@ -1,5 +1,8 @@
 <?php
-define ('ROOT_DIR', __DIR__);
+error_reporting(E_ALL);
+ini_set('log_errors','1');
+ini_set('display_errors','0');
+define('ROOT_DIR', __DIR__);
 register_shutdown_function(function() {
     $error = error_get_last();
     switch($error['type']){
