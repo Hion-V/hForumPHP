@@ -9,11 +9,16 @@ class TA_TestDBUser extends TestAction{
     public function execute()
     {
         $users = DBUser::getAllUsers();
+        /*
         foreach ($users as $user){
             self::logMessage($user->getId());
             self::logMessage($user->getUsername());
             self::logMessage($user->getEmail());
             self::logMessage($user->getPassword());
         }
+        */
+        echo "<div id='response_json'>";
+        echo (json_encode($users));
+        echo "</div>";
     }
 }
