@@ -14,7 +14,7 @@ class DBReply extends Database{
 	static function getAllReplies():array
     {
         $con = self::connectToDB();
-        $query = $con->prepare("SELECT * FROM reply WHERE id = :id");
+        $query = $con->prepare("SELECT * FROM reply");
         $query->bindParam(":id", $id);
         $query->execute();
         $replyArray = [];
