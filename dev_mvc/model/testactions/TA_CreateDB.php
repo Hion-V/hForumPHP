@@ -1,6 +1,5 @@
 <?php
 class TA_CreateDB extends TestAction{
-    nee
     function TA_CreateDB(){
         
         parent::__construct();

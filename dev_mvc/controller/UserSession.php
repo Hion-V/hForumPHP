@@ -5,7 +5,7 @@ Class UserSession{
 	public $token = "undefined";
 	public $expires;
 	public static $session;
-	public function UserSession($uid, $token = "undefined"){
+	public function __construct($uid, $token = "undefined"){
 		$this->uid = $uid;
 		$this->token = $token;
 		$this->setExpiry();

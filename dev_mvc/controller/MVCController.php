@@ -8,7 +8,7 @@ class MVCController{
     private $timesOverridden = 0;
     private static $mvcController;
     public static $viewData = [];
-    function MVCController(){
+    function __construct(){
     	self::$mvcController = $this;
     	//prepare current view and view model
     	if(isset($_GET['p']) && $_GET['p'] != ''){
