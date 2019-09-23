@@ -8,9 +8,12 @@ class TA_TestDBUser extends TestAction{
     }
     public function execute()
     {
-        $user = DBUser::getUserByUID(9 );
-        self::logMessage($user->getUsername());
-        self::logMessage($user->getEmail());
-        self::logMessage($user->getPassword());
+        $users = DBUser::getAllUsers();
+        foreach ($users as $user){
+            self::logMessage($user->getId());
+            self::logMessage($user->getUsername());
+            self::logMessage($user->getEmail());
+            self::logMessage($user->getPassword());
+        }
     }
 }

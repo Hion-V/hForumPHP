@@ -11,6 +11,24 @@ class DBUser extends Database
 		$user = new User($result['ID'], $result['username'], $result['email'], $result['password'], $result['reg_date'], $result['login_date'], $result['reg_ip'], $result['permissions'], $result['active']);
 		return $user;
 	}
+
+    /**
+     * @return array
+     */
+    static function getAllUsers():array
+    {
+        $con = self::connectToDB();
+        $query = $con->prepare("SELECT * FROM users");
+        $query->bindParam(":uid", $uid);
+        $query->execute();
+        $query->rowCount();
+        $userArray = [];
+        while ($result = $query->fetch(PDO::FETCH_BOTH)) {
+            $user = new User($result['ID'], $result['username'], $result['email'], $result['password'], $result['reg_date'], $result['login_date'], $result['reg_ip'], $result['permissions'], $result['active']);
+            array_push($userArray, $user);
+        }
+        return $userArray;
+    }
 	static function getUserByEmail($email){
 		$con = self::connectToDB();
 		$query = $con->prepare("SELECT * FROM users WHERE email = :email");
