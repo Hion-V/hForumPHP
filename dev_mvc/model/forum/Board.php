@@ -8,6 +8,15 @@ class Board {
 		$this->name = $name;
 		$this->permLevel = $permLevel;
 	}
+	function getId(){
+		return $this->id;
+	}
+	function getName(){
+		return $this->$name;
+	}
+	function getPermLevel(){
+		return $this->$permLevel;
+	}
 	
 }
 

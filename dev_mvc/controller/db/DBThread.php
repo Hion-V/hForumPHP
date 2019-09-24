@@ -25,7 +25,12 @@ class DBThread extends Database {
 		$query = $con->prepare("SELECT * FROM thread WHERE board_ID = :boardID");
 		$query->bindParam(":boardID", $boardID);
 		$query->execute();
-		return $query->fetchAll(PDO::FETCH_BOTH);
+		$threadArray = [];
+		while($result = $query->fetch(PDO::FETCH_BOTH)){
+			$thread = new Thread($result['ID'], $result['users_ID'], $result['board_ID'], $result['title'], $result['text'], $result['date_created']);
+			array_push($threadArray, $thread);
+		}
+		return $threadArray;
 	}
 	static function createThread($threadObject){
 		$con = self::connectToDB();

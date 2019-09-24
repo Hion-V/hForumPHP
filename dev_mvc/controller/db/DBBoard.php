@@ -6,7 +6,12 @@ class DBBoard extends Database{
 		$con = self::connectToDB();
 		$query = $con->prepare("SELECT * FROM board");
 		$query->execute();
-		return $query->fetchAll(PDO::FETCH_BOTH);
+		$boardArray = [];
+		while($result = $query->fetch(PDO::FETCH_BOTH)){
+			$board = new Board($result['ID'],$result['name'],$result['permLevel']);
+			array_push($boardArray, $board);
+		}
+		return $boardArray;
 	}
 	
 }
