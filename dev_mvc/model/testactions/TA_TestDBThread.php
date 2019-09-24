@@ -6,9 +6,9 @@ class TA_TestDBThread extends TestAction{
         parent::__construct();
     }
     function execute(){
-        $replies = DBReply::getAllReplies();
+        $threads = DBThread::getAllThreads();
         echo "<div id='response_json'>";
-        echo (json_encode($replies));
+        echo (json_encode($threads));
         echo "</div>";
     }
 }
