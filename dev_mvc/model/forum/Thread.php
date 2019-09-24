@@ -1,15 +1,15 @@
 <?php
 
 class Thread {
-	private $id;
-	private $title;
-	private $boardID;
-	private $userID;
-	private $content;
-	private $date_created;
-	private $replies = [];
-	private $lastReplyDate;
-	private $owner;
+	public $id;
+	public $title;
+	public $boardID;
+	public $userID;
+	public $content;
+	public $date_created;
+	public $replies = [];
+	public $lastReplyDate;
+	public $owner;
 	
 
 	function Thread($id, $userID, $boardID, $title, $content, $date_created = null) {
