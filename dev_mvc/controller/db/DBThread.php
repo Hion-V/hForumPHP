@@ -11,8 +11,7 @@ class DBThread extends Database {
 	}	
 	static function getAllThreads(){
 		$con = self::connectToDB();
-		$query = $con->prepare("SELECT * FROM thread WHERE ID = :id");
-		$query->bindParam(":id", $id);
+		$query = $con->prepare("SELECT * FROM thread");
 		$query->execute();
 		$threadArray = [];
 		while($result = $query->fetch(PDO::FETCH_BOTH)){
