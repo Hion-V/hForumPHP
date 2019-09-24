@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('log_errors','1');
-ini_set('display_errors','0');
+ini_set('display_errors','1');
 define('ROOT_DIR', __DIR__);
 session_start();
 require_once(ROOT_DIR.'/model/testactions/TestAction.php');

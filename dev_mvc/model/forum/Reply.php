@@ -7,7 +7,7 @@ class Reply {
 	public $date;
 	public $owner;
 	
-	function Reply($id, $threadID, $userID, $content, $date = null){
+	function __construct($id, $threadID, $userID, $content, $date = null){
 		$this->id = $id;
 		$this->threadID = $threadID;
 		$this->userID = $userID;

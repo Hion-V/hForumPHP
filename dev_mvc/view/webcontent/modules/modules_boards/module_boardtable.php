@@ -6,7 +6,7 @@
 					<th width=10%>Started by</th>
 					<th width=15%>Last reply</th>
 				</tr>
-<?php
+				<?php
 foreach (MVCController::$viewData['threads'] as $thread){
 	if($thread->getBoardID() == $board->id){
 		$currentRow = [];

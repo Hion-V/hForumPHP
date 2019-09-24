@@ -1,5 +1,4 @@
 <?php
-
 class Thread {
 	public $id;
 	public $title;
@@ -12,7 +11,7 @@ class Thread {
 	public $owner;
 	
 
-	function Thread($id, $userID, $boardID, $title, $content, $date_created = null) {
+	function __construct($id, $userID, $boardID, $title, $content, $date_created = null) {
 		$this->id = $id;
 		$this->title = $title;
 		$this->boardID = $boardID;
@@ -60,7 +59,7 @@ class Thread {
 		$this->owner = $owner;
 	}
 	
-	public function getId():int {
+	public function getId() {
 		return $this->id;
 	}
 	
@@ -74,14 +73,14 @@ class Thread {
 	/**
 	 * @return int $boardID
 	 */
-	public function getBoardID():int {
+	public function getBoardID() {
 		return $this->boardID;
 	}
 	
 	/**
 	 * @return int $userID
 	 */
-	public function getUserID():int {
+	public function getUserID() {
 		return $this->userID;
 	}
 	
