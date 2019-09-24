@@ -12,10 +12,10 @@ class Board {
 		return $this->id;
 	}
 	function getName(){
-		return $this->$name;
+		return $this->name;
 	}
 	function getPermLevel(){
-		return $this->$permLevel;
+		return $this->permLevel;
 	}
 	
 }
