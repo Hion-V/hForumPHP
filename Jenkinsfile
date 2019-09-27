@@ -18,10 +18,8 @@ node {
     }
     stage('prepare') {
         sh '''
-            #git clone git@github.com:Hion-V/hForumPHP.git
-            #git -C ./hForumPHP/ checkout Dev
             git clone git@github.com:Hion-V/jenkins-testapache.git
-            cp -r hForumPHP/dev_mvc jenkins-testapache/app
+            cp -r dev_mvc jenkins-testapache/app
         ''' 
     }
     stage('build'){
