@@ -1,5 +1,5 @@
 <?php
-class TA_TestSQLConnection{
+class TA_TestSQLConnection extends TestAction{
     function __construct(){
         parent::_construct();
     }
