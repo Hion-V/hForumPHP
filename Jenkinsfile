@@ -114,7 +114,7 @@ node {
     stage('deploy'){
         echo 'this is where we would start deploying the '
         sh '''
-            echo l
+            echo test
         '''
     }
 }
