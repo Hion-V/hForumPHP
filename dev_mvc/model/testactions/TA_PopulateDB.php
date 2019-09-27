@@ -5,26 +5,8 @@ class TA_PopulateDB extends TestAction{
     }
     function execute(){
         try{
-            if(getenv("SQL_CREDENTIALS") !== false){
-                $sql_server = getenv("SQL_SERVER");
-                $sql_username = getenv("SQL_USERNAME");
-                $sql_password = getenv("SQL_PASSWORD");
-                $sql_database = getenv("SQL_DATABASE");
-            }
-            else{
-                $sql_server = "localhost";
-                $sql_username = "root";
-                $sql_password = "kankerlow";
-                $sql_database = "webforum";
-            }
-            $host = $sql_server;
-            $db = $sql_database;
-            $user = $sql_username;
-            $pass = $sql_password;
-            
             //connect to sql server
-            $con = new PDO( "mysql:host=$host;charset=utf8", $user, $pass );
-            $con->exec("USE $db");
+            $con = Database::connectToDB();
             
             
             
@@ -53,12 +35,4 @@ class TA_PopulateDB extends TestAction{
             die("pdo exception, cannot connect to sql:<br> $e");
         }
     }
-}
-
-    
-    
-    
-    
-    
-    
-    ?>
+}  
