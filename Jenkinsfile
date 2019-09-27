@@ -1,4 +1,5 @@
 node {
+    //change
     stage ('cleanup'){
         sh '''
             if [ -d "jenkins-testapache" ]; then
@@ -113,7 +114,7 @@ node {
     stage('deploy'){
         echo 'this is where we would start deploying the '
         sh '''
-            cp
+            echo l
         '''
     }
 }
