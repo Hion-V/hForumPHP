@@ -25,6 +25,29 @@ Class Database{
 			die($e);
 		}
 	}
+	static function connectToSQL(){
+		try{
+			//Defineer vars
+			if(getenv("SQL_CREDENTIALS") !== false){
+				$sql_server = getenv("SQL_SERVER");
+				$sql_username = getenv("SQL_USERNAME");
+				$sql_password = getenv("SQL_PASSWORD");
+			}
+			else{
+				$sql_server = "localhost";
+				$sql_username = "root";
+				$sql_password = "kankerlow";
+			}
+			$dsn = "mysql:host=$sql_server;";
+			//Maak verbinding
+			$con = new PDO($dsn, $sql_username, $sql_password);
+			return $con;
+		}
+		catch(PDOException $e){
+			echo("PDO Exception, can't connect to database.");
+			die($e);
+		}
+	}
 	
 	/***
 	 *      ______ __  __          _____ _                 _____ _______ _______      __  _______ _____ ____  _   _
