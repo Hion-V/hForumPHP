@@ -9,7 +9,6 @@ class TA_PopulateDB extends TestAction{
             $con = Database::connectToDB();
             
             
-            
             self::logMessage('table doesnt exist', "OK");
             $query = $con->query("INSERT INTO users ( `username`, `email`, `password`, `login_date`, `reg_ip`, `active`) VALUES 
                                                     ( 'andreas', 'andreas@andreas.nl', 'jenk', '2019-01-01 14:35:33', '192.168.0.2', 1),
@@ -33,7 +32,7 @@ class TA_PopulateDB extends TestAction{
         catch(PDOException $e){
             self::logMessage("created test replies", "FAILURE");
             die("pdo exception, cannot connect to sql:<br> $e");
-            //test change 5
+            //test change 6
         }
     }
 }  
