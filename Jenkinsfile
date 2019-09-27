@@ -14,7 +14,7 @@ node {
         '''
     }
     stage ('Checkout'){
-        git branch: 'Dev', url: 'https://github.com/github.com:Hion-V/hForumPHP.git'
+        git branch: 'refs/heads/Dev', url: 'https://github.com/github.com:Hion-V/hForumPHP.git'
     }
     stage('prepare') {
         sh '''
