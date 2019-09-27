@@ -14,12 +14,11 @@ node {
         '''
     }
     stage ('Checkout'){
-        git branch: 'refs/heads/Dev', url: 'https://github.com/github.com:Hion-V/hForumPHP.git'
+        //git branch: 'refs/heads/Dev', url: 'https://github.com/github.com:Hion-V/hForumPHP.git'
+        echo env.BRANCH_NAME
     }
     stage('prepare') {
         sh '''
-            #git clone git@github.com:Hion-V/hForumPHP.git
-            #git -C ./hForumPHP/ checkout Dev
             git clone git@github.com:Hion-V/jenkins-testapache.git
             cp -r hForumPHP/dev_mvc jenkins-testapache/app
         ''' 
