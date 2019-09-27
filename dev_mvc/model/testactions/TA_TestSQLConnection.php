@@ -1,7 +1,7 @@
 <?php
 class TA_TestSQLConnection extends TestAction{
     function __construct(){
-        parent::_construct();
+        parent::__construct();
     }
     function execute(){
         echo $this->testSQLConnection();
