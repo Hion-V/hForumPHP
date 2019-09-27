@@ -32,7 +32,7 @@ class TA_PopulateDB extends TestAction{
         catch(PDOException $e){
             self::logMessage("created test replies", "FAILURE");
             die("pdo exception, cannot connect to sql:<br> $e");
-            //test change 6
+            //test change 7
         }
     }
 }  
