@@ -1,5 +1,4 @@
 node {
-    //change
     stage ('cleanup'){
         sh '''
             if [ -d "jenkins-testapache" ]; then
