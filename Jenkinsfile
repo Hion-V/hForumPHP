@@ -14,7 +14,7 @@ node {
         '''
     }
     stage ('Checkout'){
-        git([url: 'git@github.com:Hion-V/hForumPHP.git', branch: 'Dev', credentialsId: '5b510e82-81b9-4758-8263-0601f9c11e43'])
+        git([url: 'git@github.com:Hion-V/hForumPHP.git', branch: 'Dev', credentialsId: '5b510e82-81b9-4758-8263-0601f9c11e43', changelog: 'true', poll: 'true'])
     }
     stage('prepare') {
         sh '''
