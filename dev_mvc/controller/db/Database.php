@@ -1,23 +1,29 @@
 <?php
 Class Database{
 	static function connectToDB(){
-		//Defineer vars
-		if(getenv("SQL_CREDENTIALS") !== false){
-			$sql_server = getenv("SQL_SERVER");
-			$sql_username = getenv("SQL_USERNAME");
-			$sql_password = getenv("SQL_PASSWORD");
-			$sql_database = getenv("SQL_DATABASE");
+		try{
+			//Defineer vars
+			if(getenv("SQL_CREDENTIALS") !== false){
+				$sql_server = getenv("SQL_SERVER");
+				$sql_username = getenv("SQL_USERNAME");
+				$sql_password = getenv("SQL_PASSWORD");
+				$sql_database = getenv("SQL_DATABASE");
+			}
+			else{
+				$sql_server = "localhost";
+				$sql_username = "root";
+				$sql_password = "kankerlow";
+				$sql_database = "webforum";
+			}
+			$dsn = "mysql:host=$sql_server;dbname=$sql_database";
+			//Maak verbinding
+			$con = new PDO($dsn, $sql_username, $sql_password);
+			return $con;
 		}
-		else{
-			$sql_server = "localhost";
-			$sql_username = "root";
-			$sql_password = "kankerlow";
-			$sql_database = "webforum";
+		catch(PDOException $e){
+			echo("PDO Exception, can't connect to database.");
+			die($e);
 		}
-		$dsn = "mysql:host=$sql_server;dbname=$sql_database";
-		//Maak verbinding
-		$con = new PDO($dsn, $sql_username, $sql_password);
-		return $con;
 	}
 	
 	/***
