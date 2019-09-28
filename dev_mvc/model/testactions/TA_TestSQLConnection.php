@@ -16,6 +16,7 @@ class TA_TestSQLConnection extends TestAction{
 				$sql_password = getenv("SQL_PASSWORD");
 			}
 			else{
+                //test
 				$sql_server = "localhost";
 				$sql_username = "root";
 				$sql_password = "kankerlow";
