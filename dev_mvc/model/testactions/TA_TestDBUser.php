@@ -1,7 +1,7 @@
 <?php
 namespace model\testactions;
-require_once(ROOT_DIR.'/controller/db/DBUser.php');
-require_once(ROOT_DIR.'/model/forum/User.php');
+use controller\db\DBUser;
+use model\forum\User;
 class TA_TestDBUser extends TestAction{
     public function __construct()
     {

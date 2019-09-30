@@ -13,7 +13,7 @@ function autoload($className){
     $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
 
     //echo $fileName;
-    require ROOT_DIR . '\\' . $fileName;
+    require ROOT_DIR . '/' . $fileName;
 }
 
 spl_autoload_register('autoload');

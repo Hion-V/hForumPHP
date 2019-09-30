@@ -1,7 +1,7 @@
 <?php
 namespace model\testactions;
-require_once(ROOT_DIR.'/controller/db/DBReply.php');
-require_once(ROOT_DIR.'/model/forum/Reply.php');
+use controller\db\DBReply;
+use model\forum\Reply;
 class TA_TestDBReply extends TestAction{
     public function __construct()
     {
