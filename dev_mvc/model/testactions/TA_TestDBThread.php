@@ -1,4 +1,5 @@
 <?php
+namespace model\testactions;
 require_once(ROOT_DIR.'/controller/db/DBThread.php');
 require_once(ROOT_DIR.'/model/forum/Thread.php');
 class TA_TestDBThread extends TestAction{

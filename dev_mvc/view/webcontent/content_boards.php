@@ -1,6 +1,5 @@
 <?php
-require_once ROOT_DIR.'/model/forum/Thread.php';
-require_once ROOT_DIR.'/model/forum/User.php';
+use controller\MVCController;
 foreach (MVCController::$viewData['boards'] as $board){ 
 	include ROOT_DIR.'/view/webcontent/modules/modules_boards/module_boardtable.php';
 }

@@ -12,6 +12,7 @@ require_once("index.php");
 <?php 
 include_once(ROOT_DIR."/view/webcontent/content_header.php");
 ?>
+
 		</header>
 		<div class="main">
 <?php 

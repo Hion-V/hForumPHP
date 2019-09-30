@@ -1,4 +1,6 @@
 <?php
+namespace model\forum;
+use DateTime;
 class Thread {
 	public $id;
 	public $title;

@@ -1,3 +1,6 @@
+<?php
+use controller\MVCController;
+?>
 			<h2><?=$board->name?></h2>
 			<a href="?p=createthread&board=<?=$board->id?>">Create Thread</a>
 			<table>
@@ -6,7 +9,7 @@
 					<th width=10%>Started by</th>
 					<th width=15%>Last reply</th>
 				</tr>
-				<?php
+<?php
 foreach (MVCController::$viewData['threads'] as $thread){
 	if($thread->getBoardID() == $board->id){
 		$currentRow = [];
@@ -28,7 +31,7 @@ foreach (MVCController::$viewData['threads'] as $thread){
 				}
 			}
 		}
-		?>
+?>
 				<tr>
 					<td>
 						<a href="?p=showthread&thread=<?=$currentRow['threadID']?>"><?=$currentRow['threadTitle']?></a>
@@ -39,9 +42,10 @@ foreach (MVCController::$viewData['threads'] as $thread){
 					</td>
 					<td>
 						<?=$currentRow['lastUpdated']?>
+						
 					</td>
 				</tr>
-		<?php
+<?php
 	}
 }
 ?>

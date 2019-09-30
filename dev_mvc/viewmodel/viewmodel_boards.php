@@ -1,11 +1,13 @@
 <?php
-require_once ROOT_DIR.'/controller/db/DBBoard.php';
-require_once ROOT_DIR.'/controller/db/DBThread.php';
-require_once ROOT_DIR.'/controller/db/DBUser.php';
-require_once ROOT_DIR.'/model/forum/Board.php';
-require_once ROOT_DIR.'/model/forum/Thread.php';
-require_once ROOT_DIR.'/model/forum/User.php';
-require_once ROOT_DIR.'/model/forum/Reply.php';
+use controller\MVCController;
+use controller\db\DBBoard;
+use controller\db\DBThread;
+use controller\db\DBUser;
+use model\forum\Board;
+use model\forum\Thread;
+use model\forum\User;
+use model\forum\Reply;
+
 
 $boards = DBBoard::getBoards();
 $users = [];

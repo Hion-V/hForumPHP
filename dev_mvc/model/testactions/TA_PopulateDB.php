@@ -1,4 +1,5 @@
 <?php
+namespace model\testactions;
 class TA_PopulateDB extends TestAction{
     function TA_PopulateDB(){
         parent::__construct();

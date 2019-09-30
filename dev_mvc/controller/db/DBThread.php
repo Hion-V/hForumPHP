@@ -1,5 +1,7 @@
 <?php
-require_once ROOT_DIR.'/model/forum/Thread.php';
+namespace controller\db;
+use model\forum\Thread;
+use PDO;
 class DBThread extends Database {
 	static function getThreadByID($id){
 		$con = self::connectToDB();

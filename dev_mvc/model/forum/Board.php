@@ -1,4 +1,5 @@
 <?php
+namespace model\forum;
 class Board {
 	public $id;
 	public $name;

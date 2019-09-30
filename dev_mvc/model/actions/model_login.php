@@ -1,9 +1,11 @@
 <?php
 $debuginfo = false;
-require_once(ROOT_DIR."/controller/UserSession.php");
-require_once(ROOT_DIR."/controller/db/Database.php");
-require_once(ROOT_DIR."/controller/db/DBUser.php");
-require_once(ROOT_DIR."/controller/HUtils.php");
+use controller\UserSession;
+use controller\db\Database;
+use controller\db\DBUser;
+use controller\HUtils;
+use controller\MVCController;
+use model\forum\User;
 $skipoverride = false;
 if(!UserSession::isUserSignedIn()){
 	if(HUtils::issetPost(['email','password'])){

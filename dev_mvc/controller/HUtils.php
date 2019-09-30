@@ -1,4 +1,5 @@
 <?php
+namespace controller;
 Class HUtils{
     static function issetPost($arr_postvars){
         for ($i=0; $i <sizeof($arr_postvars) ; $i++) 

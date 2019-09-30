@@ -1,4 +1,5 @@
 <?php
+namespace model\testactions;
 class TA_TestSQLConnection extends TestAction{
     function __construct(){
         parent::__construct();

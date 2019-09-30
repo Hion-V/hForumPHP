@@ -1,5 +1,7 @@
 <?php
-require_once(ROOT_DIR.'/model/forum/User.php');
+namespace controller\db;
+use model\forum\User;
+use PDO;
 class DBUser extends Database
 {
 	static function getUserByUID($uid){

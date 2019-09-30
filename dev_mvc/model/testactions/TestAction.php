@@ -1,4 +1,5 @@
 <?php
+namespace model\testactions;
 class TestAction{
     function __construct(){
         if(isset($_POST['auth'])){

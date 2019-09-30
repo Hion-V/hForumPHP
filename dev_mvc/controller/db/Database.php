@@ -1,4 +1,6 @@
 <?php
+namespace controller\db;
+use PDO;
 Class Database{
 	static function connectToDB(){
 		try{

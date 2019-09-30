@@ -1,6 +1,7 @@
 <?php
-require_once ROOT_DIR.'/controller/db/Database.php';
-require_once ROOT_DIR.'/model/forum/Reply.php';
+namespace controller\db;
+use model\forum\Reply;
+use PDO;
 class DBReply extends Database{
 	static function createReply($uid, $threadID, $content){
 		$con = self::connectToDB();

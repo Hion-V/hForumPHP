@@ -1,7 +1,8 @@
 <?php 
-require_once ROOT_DIR.'/model/forum/Thread.php';
-require_once ROOT_DIR.'/model/forum/Reply.php';
-require_once ROOT_DIR.'/model/forum/User.php';
+use controller\MVCController;
+use model\forum\Thread;
+use model\forum\Reply;
+use model\forum\User;
 //$thread = new Thread();
 $thread = MVCController::$viewData['thread'];
 $replies = $thread->getReplies();

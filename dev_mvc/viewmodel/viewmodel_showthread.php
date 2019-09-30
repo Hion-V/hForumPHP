@@ -1,4 +1,10 @@
 <?php
+use controller\MVCController;
+use controller\db\DBThread;
+use controller\db\DBReply;
+use controller\db\DBUser;
+use model\forum\User;
+use model\forum\Reply;
 require_once ROOT_DIR.'/controller/db/DBThread.php';
 require_once ROOT_DIR.'/controller/db/DBReply.php';
 require_once ROOT_DIR.'/controller/db/DBUser.php';

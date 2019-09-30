@@ -1,5 +1,5 @@
 <?php
-
+namespace model\forum;
 class User {
 	public $id;
 	public $username;

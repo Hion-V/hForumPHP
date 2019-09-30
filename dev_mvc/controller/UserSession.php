@@ -1,5 +1,7 @@
 <?php
-require_once(ROOT_DIR.'/controller/db/Database.php');
+namespace controller;
+use controller\db\Database;
+use DateTime;
 Class UserSession{
 	public $uid = -1;
 	public $token = "undefined";

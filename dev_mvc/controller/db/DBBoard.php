@@ -1,5 +1,7 @@
 <?php
-require_once ROOT_DIR.'/controller/db/Database.php';
+namespace controller\db;
+use model\forum\Board;
+use PDO;
 class DBBoard extends Database{
 	static function getBoards():array
 	{
