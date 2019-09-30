@@ -1,5 +1,6 @@
 <?php
 namespace model\testactions;
+use PDO;
 class TA_TestSQLConnection extends TestAction{
     function __construct(){
         parent::__construct();

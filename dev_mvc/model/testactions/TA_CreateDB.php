@@ -1,6 +1,7 @@
 <?php
 namespace model\testactions;
 use PDO;
+use PDOException;
 class TA_CreateDB extends TestAction{
     function TA_CreateDB(){
         

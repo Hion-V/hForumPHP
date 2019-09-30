@@ -69,8 +69,8 @@ class MVCController{
 		//check if testaction is valid
 		if(file_exists($this->testaction)){
 			//execute testaction
-			require_once($this->testaction);
-			$testactionClassname = "TA_".$_POST['testaction'];
+			//require_once($this->testaction);
+			$testactionClassname = "model\testactions\\". "TA_".$_POST['testaction'];
 			$testactionInstance = new $testactionClassname();
 		}
     	

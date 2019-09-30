@@ -1,6 +1,8 @@
 <?php
 namespace model\testactions;
 use controller\db\Database;
+use PDO;
+use PDOException;
 class TA_PopulateDB extends TestAction{
     function TA_PopulateDB(){
         parent::__construct();
