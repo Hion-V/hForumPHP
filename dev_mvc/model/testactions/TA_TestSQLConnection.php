@@ -1,6 +1,7 @@
 <?php
 namespace model\testactions;
 use PDO;
+use PDOException;
 class TA_TestSQLConnection extends TestAction{
     function __construct(){
         parent::__construct();
