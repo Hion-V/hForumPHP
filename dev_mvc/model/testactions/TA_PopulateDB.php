@@ -2,6 +2,7 @@
 namespace model\testactions;
 use controller\db\Database;
 use controller\db\DBBoard;
+use controller\db\DBReply;
 use controller\db\DBThread;
 use controller\db\DBUser;
 use model\forum\Board;
@@ -48,13 +49,12 @@ class TA_PopulateDB extends TestAction{
             DBThread::createThread(new Thread(-1, 1, 2, 'Frits', 'Frits niffo', '1337-04-20 13:37:00'));
 
             self::logMessage("created test threads", "OK");
-            $query = $con->query("INSERT INTO `reply` ( `thread_ID`, `users_ID`, `content`, `date_created`) VALUES ('1', '1', 'heehee eks dee', '2019-06-21 11:01:57'), 
-                                                                                                                  ('1', '1', 'hoi\r\n', '2019-06-21 11:07:25'), 
-                                                                                                                  ('2', '2', 'fristi niBBa', '2019-06-21 11:08:08'), 
-                                                                                                                  ('1', '1', 'was jouw prebleem', '2019-06-21 14:41:00'), 
-                                                                                                                  ('1', '2', 'Mijn naam is bram', '2019-06-21 17:58:12'), 
-                                                                                                                  ('1', '2', 'huh wuddufuq', '2019-06-21 17:58:29'), 
-                                                                                                                  ('1', '1', 'huts a neef', '2019-06-21 17:59:27')");
+
+            DBReply::createReply(1, 1, 'heehee eks dee');
+            DBReply::createReply(1, 1, 'sup');
+            DBReply::createReply(2, 2, 'fritselitsel');
+            DBReply::createReply(2, 1, 'heb je daar prebleem mee ofzo');
+            
             self::logMessage("created test replies", "OK");
         }
         catch(PDOException $e){
