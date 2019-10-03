@@ -2,8 +2,10 @@
 namespace model\testactions;
 use controller\db\Database;
 use controller\db\DBBoard;
+use controller\db\DBThread;
 use controller\db\DBUser;
 use model\forum\Board;
+use model\forum\Thread;
 use PDO;
 use PDOException;
 class TA_PopulateDB extends TestAction{
@@ -40,8 +42,11 @@ class TA_PopulateDB extends TestAction{
             
             
             self::logMessage("created test boards", "OK");
-            $query = $con->query("INSERT INTO `thread` ( `users_ID`, `board_ID`, `title`, `text`, `date_created`) VALUES ('1', '1', 'Test thread', 'Deze thread is een test.', '2019-06-20 13:55:37'), 
-                                                                                                                        ('1', '2', 'Waa', 'Frist niffo', '2019-06-20 13:56:42')");
+
+
+            DBThread::createThread(new Thread(-1, 1, 1, 'Test Thread', 'Deze thread is een test.', '1337-04-20 13:77:00'));
+            DBThread::createThread(new Thread(-1, 1, 2, 'Frits', 'Frits niffo', '1337-04-20 13:77:00'));
+            
             self::logMessage("created test threads", "OK");
             $query = $con->query("INSERT INTO `reply` ( `thread_ID`, `users_ID`, `content`, `date_created`) VALUES ('1', '1', 'heehee eks dee', '2019-06-21 11:01:57'), 
                                                                                                                   ('1', '1', 'hoi\r\n', '2019-06-21 11:07:25'), 
