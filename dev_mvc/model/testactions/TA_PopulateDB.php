@@ -1,12 +1,23 @@
 <?php
 namespace model\testactions;
 use controller\db\Database;
+use controller\db\DBBoard;
+use controller\db\DBUser;
+use model\forum\Board;
 use PDO;
 use PDOException;
 class TA_PopulateDB extends TestAction{
     function TA_PopulateDB(){
         parent::__construct();
     }
+    function registerUser($email, $password, $username){
+        DBUser::registerUser($email,$password,$username);
+        $user = DBUser::getUserByEmail($email);
+        Database::registerActivationKey($user->getId(), $username);
+        Database::activateUser($username);
+    }
+
+
     function execute(){
         try{
             //connect to sql server
@@ -14,12 +25,20 @@ class TA_PopulateDB extends TestAction{
             
             
             self::logMessage('table doesnt exist', "OK");
-            $query = $con->query("INSERT INTO users ( `username`, `email`, `password`, `login_date`, `reg_ip`, `active`) VALUES 
-                                                    ( 'andreas', 'andreas@andreas.nl', 'jenk', '2019-01-01 14:35:33', '192.168.0.2', 1),
-                                                    ( 'bram', 'bram@bram.nl', 'jenk', '2019-01-01 14:35:33', '192.168.0.1', 1)");
+
+
+            $this->registerUser('andreas@andreas.nl','jenk', 'andreas');
+            $this->registerUser('bram@bram.nl','jenk', 'bram');
+
+
             self::logMessage("created test users", "OK");
-            $query = $con->query("INSERT INTO `board` ( `name`, `description`, `permLevel`) VALUES ('General Discussion', 'Plek om algemene discussie te voeren.', '0'), 
-                                                                                                  ('Off Topic', 'Voor alle irrelevante zooi.', '0')");
+                        
+            DBBoard::registerBoard(new Board(-1, 'General Discussion', 'Plek om algemene discussie te voeren.', '0'));
+            DBBoard::registerBoard(new Board(-1, 'Off Topic', 'Voor alle irrelevante zooi.', '0'));
+            
+            
+            
+            
             self::logMessage("created test boards", "OK");
             $query = $con->query("INSERT INTO `thread` ( `users_ID`, `board_ID`, `title`, `text`, `date_created`) VALUES ('1', '1', 'Test thread', 'Deze thread is een test.', '2019-06-20 13:55:37'), 
                                                                                                                         ('1', '2', 'Waa', 'Frist niffo', '2019-06-20 13:56:42')");
