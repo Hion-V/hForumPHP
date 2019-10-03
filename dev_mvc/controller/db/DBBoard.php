@@ -19,8 +19,8 @@ class DBBoard extends Database{
 	{
 		$con = self::connectToDB();
 		$name = $board->getName();
-		$description = $board->description();
-		$permLevel = $board->permLevel();
+		$description = $board->getDescription();
+		$permLevel = $board->getPermLevel();
 		$query = $con->prepare("INSERT INTO `board` ( `name`, `description`, `permLevel`) VALUES (':name', ':description', :permLevel)");
 		$query->bindParam(":name", $name);
 		$query->bindParam(":description", $description);
