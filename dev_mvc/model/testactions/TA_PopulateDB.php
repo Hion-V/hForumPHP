@@ -44,9 +44,9 @@ class TA_PopulateDB extends TestAction{
             self::logMessage("created test boards", "OK");
 
 
-            DBThread::createThread(new Thread(-1, 1, 1, 'Test Thread', 'Deze thread is een test.', '1337-04-20 13:77:00'));
-            DBThread::createThread(new Thread(-1, 1, 2, 'Frits', 'Frits niffo', '1337-04-20 13:77:00'));
-            
+            DBThread::createThread(new Thread(-1, 1, 1, 'Test Thread', 'Deze thread is een test.', '1337-04-20 13:37:00'));
+            DBThread::createThread(new Thread(-1, 1, 2, 'Frits', 'Frits niffo', '1337-04-20 13:37:00'));
+
             self::logMessage("created test threads", "OK");
             $query = $con->query("INSERT INTO `reply` ( `thread_ID`, `users_ID`, `content`, `date_created`) VALUES ('1', '1', 'heehee eks dee', '2019-06-21 11:01:57'), 
                                                                                                                   ('1', '1', 'hoi\r\n', '2019-06-21 11:07:25'), 
