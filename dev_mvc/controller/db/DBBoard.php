@@ -23,7 +23,7 @@ class DBBoard extends Database{
 		$description = $board->getDescription();
 		$permLevel = $board->getPermLevel();
 
-		$query = $con->prepare("INSERT INTO board (name, description, permLevel) VALUES (':name', ':description', :permLevel)");
+		$query = $con->prepare("INSERT INTO board (name, description, permLevel) VALUES (:name, :description, :permLevel)");
 		$query->bindParam(":name", $name);
 		$query->bindParam(":description", $description);
 		$query->bindParam(":permLevel", $permLevel);
