@@ -33,8 +33,8 @@ class TA_PopulateDB extends TestAction{
 
             self::logMessage("created test users", "OK");
                         
-            DBBoard::registerBoard(new Board(-1, 'General Discussion', 'Plek om algemene discussie te voeren.', '0'));
-            DBBoard::registerBoard(new Board(-1, 'Off Topic', 'Voor alle irrelevante zooi.', '0'));
+            DBBoard::registerBoard(new Board(-1, 'General Discussion', 'Plek om algemene discussie te voeren.', 0));
+            DBBoard::registerBoard(new Board(-1, 'Off Topic', 'Voor alle irrelevante zooi.', 0));
             
             
             

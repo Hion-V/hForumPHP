@@ -18,9 +18,11 @@ class DBBoard extends Database{
 	static function registerBoard(Board $board)
 	{
 		$con = self::connectToDB();
+
 		$name = $board->getName();
 		$description = $board->getDescription();
 		$permLevel = $board->getPermLevel();
+		
 		$query = $con->prepare("INSERT INTO `board` ( `name`, `description`, `permLevel`) VALUES (':name', ':description', :permLevel)");
 		$query->bindParam(":name", $name);
 		$query->bindParam(":description", $description);
