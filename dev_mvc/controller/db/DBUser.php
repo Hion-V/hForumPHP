@@ -42,6 +42,9 @@ class DBUser extends Database
 			//Email adres is niet in gebruik, return false
 			return $user;
 		}
+		else if($query->rowCount() == 0){
+			trigger_error("Email $email not found in DB", E_USER_ERROR);
+		}
 		else{
 			//Email is al in gebruik of komt meer dan een keer voor. Beide gevallen zijn een probleem dus return true.
 			trigger_error("Multiple users for email $email returned by DB, value should be unique", E_USER_ERROR);

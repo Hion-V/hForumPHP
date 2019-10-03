@@ -56,8 +56,8 @@ class TA_CreateDB extends TestAction{
                 `email` varchar(256) NOT NULL,
                 `password` varchar(256) NOT NULL,
                 `reg_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                `login_date` datetime NOT NULL,
-                `reg_ip` varchar(256) NOT NULL,
+                `login_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                `reg_ip` varchar(256) NOT NULL DEFAULT '127.0.0.1',
                 `permissions` int(11) NOT NULL DEFAULT '-1',
                 `active` tinyint(1) DEFAULT '0',
                 PRIMARY KEY (`ID`)
