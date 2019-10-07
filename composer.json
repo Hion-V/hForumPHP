@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "classmap": [
+            "dev_mvc/"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    }
+}
