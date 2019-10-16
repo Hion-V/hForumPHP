@@ -1,5 +1,8 @@
 <?php
 namespace controller\db;
+
+use controller\db\DBTables;
+
 use PDO;
 Class Database{
 	static function connectToDB(){
@@ -50,7 +53,19 @@ Class Database{
 			die($e);
 		}
 	}
-	
+	static function createDBIfNotPresent(){
+		$con = self::connectToSQL();
+		$dbName = getenv("SQL_DATABASE");
+		$query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = $dbName");
+		$result = (bool) $query;
+		if($result == 1){
+			echo('db exists');
+		}
+		else{
+			$query = $con->query("CREATE DATABASE $dbName");
+			DBTables::createAllTables();
+		}
+	}
 	/***
 	 *      ______ __  __          _____ _                 _____ _______ _______      __  _______ _____ ____  _   _
 	 *     |  ____|  \/  |   /\   |_   _| |          /\   / ____|__   __|_   _\ \    / /\|__   __|_   _/ __ \| \ | |
