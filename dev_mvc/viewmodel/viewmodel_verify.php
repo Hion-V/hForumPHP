@@ -1,4 +1,5 @@
 <?php
+use controller\db\Database;
 require_once ROOT_DIR.'/controller/db/Database.php';
 require_once ROOT_DIR.'/controller/db/DBUser.php';
 $key = '';
