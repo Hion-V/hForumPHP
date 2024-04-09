@@ -1,10 +1,123 @@
 *{
-    font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
+}
+html, body{
+	
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #333333;
+}
+body{
+	
+}
+
+loginForm{
+	
+}
+.logo{
+	height: 100px;
+	width: 100px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	justify-self: left;
+	font-size: 50pt;
+	padding: 10pt;
+	color: white;
+	margin-right: 10px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,45427a+100 */
+	background: #1e5799; /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  #1e5799 0%, #45427a 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg,  #1e5799 0%,#45427a 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg,  #1e5799 0%,#45427a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#45427a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	
+  	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+	box-shadow: 0px 0px 20px black;
+}
+.row{
+	display: flex;
+	flex-direction: row;
+	flex-basis: auto;
 }
 header{
-    background-color: bisque;
+	margin-top: 10px;
 }
-a{
-    margin-right: 10px;
-    text-decoration: none;
+nav{
+	border-radius: 10px;
+	display:flex;
+	flex-direction: flex-row;
+	flex-basis: auto;
+	flex-shrink: 0;
+	flex-grow: 0;
+	background-color: gray;
+	width: 80%;
+	height: 100px;
+	max-height: 100px;
+	
+	
+	
+	align-items: center;
+	justify-items: center;
+	align-content: center;
+	justify-content: center;
+	align-self: center;
+	justify-self: center;
+	box-shadow: 0px 0px 20px black;
+}
+nav a{
+	padding-left: 10px;
+	padding-right: 10px;
+	text-decoration: none;
+	font-size: 20pt;
+	font-weight: bold;
+	color: white;
+}
+.main{
+	border-radius: 15px;
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 0;
+	flex-shrink: 1;
+	background-color: white;
+	padding: 15px;
+	margin-bottom: 20px;
+	box-shadow: 0px 0px 20px black;
+}
+input{
+	padding: 5px;
+	margin: 5px;
+}
+textarea{
+	padding: 5px;
+	margin: 5px;
+	resize: none;
+	width: 50vw;
+	height: 20vw;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  width: 80vw;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }

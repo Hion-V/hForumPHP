@@ -1,4 +1,5 @@
 <?php
+namespace controller;
 Class HUtils{
     static function issetPost($arr_postvars){
         for ($i=0; $i <sizeof($arr_postvars) ; $i++) 
@@ -19,18 +20,19 @@ Class HUtils{
         return true;
     }
     static function sqlDateToPhpDate($date){
-        
         return new DateTime($date);
-    }
-    static function getPage(){
-        $p = "";
-        if(isset($_GET['p'])){
-            $p = $_GET['p'];
-        }
-        return $p;
     }
     static function getSiteTitle(){
         return "hPHPForum";
+    }
+    static function generateRandomKey(){
+        $token = "";
+        $chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $verificationKey = "";
+        for ($i=0; $i < 32 ; $i++) { 
+            $token .= $chars[rand(0, strlen($chars) - 1)];
+        }
+        return $token;
     }
 }
 ?>
