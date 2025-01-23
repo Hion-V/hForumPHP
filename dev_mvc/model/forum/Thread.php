@@ -13,7 +13,7 @@ class Thread {
 	public $owner;
 	
 
-	function __construct($id, $userID, $boardID, $title, $content, $date_created = null) {
+	function __construct($id, $userID, $boardID, $title, $content, $date_created = "") {
 		$this->id = $id;
 		$this->title = $title;
 		$this->boardID = $boardID;

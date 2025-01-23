@@ -2,6 +2,7 @@
 namespace controller\db;
 
 use controller\db\DBTables;
+use PDOException;
 
 use PDO;
 Class Database{
@@ -15,9 +16,9 @@ Class Database{
 				$sql_database = getenv("SQL_DATABASE");
 			}
 			else{
-				$sql_server = "localhost";
+				$sql_server = "database";
 				$sql_username = "root";
-				$sql_password = "kankerlow";
+				$sql_password = "tiger";
 				$sql_database = "webforum";
 			}
 			$dsn = "mysql:host=$sql_server;dbname=$sql_database";
@@ -39,9 +40,9 @@ Class Database{
 				$sql_password = getenv("SQL_PASSWORD");
 			}
 			else{
-				$sql_server = "localhost";
+				$sql_server = "database";
 				$sql_username = "root";
-				$sql_password = "kankerlow";
+				$sql_password = "tiger";
 			}
 			$dsn = "mysql:host=$sql_server;";
 			//Maak verbinding
@@ -55,13 +56,16 @@ Class Database{
 	}
 	static function createDBIfNotPresent(){
 		$con = self::connectToSQL();
-		$dbName = getenv("SQL_DATABASE");
-		$query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = $dbName");
-		$result = (bool) $query;
+		$dbName = getenv("HFORUM_SQL_DATABASE");
+		$query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = \"$dbName\";");
+		$result = (bool) $query->fetchColumn(0);
 		if($result == 1){
 			echo('db exists');
+			echo("\$dbName\"");
+
 		}
 		else{
+			echo("creating all tables");
 			$query = $con->query("CREATE DATABASE $dbName");
 			DBTables::createAllTables();
 		}

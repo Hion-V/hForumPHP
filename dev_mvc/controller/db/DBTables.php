@@ -12,7 +12,9 @@ Class DBTables extends Database{
     }
     static function createUserTable($con){
         $table = 'users';
+        echo "user table";
         if(!self::checkTableExists($table, $con)){
+            echo "trying to create user table";
             $query = $con->query(
                 "	CREATE TABLE `users` (
                 `ID` int(11) NOT NULL AUTO_INCREMENT,
@@ -25,7 +27,7 @@ Class DBTables extends Database{
                 `permissions` int(11) NOT NULL DEFAULT '-1',
                 `active` tinyint(1) DEFAULT '0',
                 PRIMARY KEY (`ID`)
-               ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1");
+               ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;");
         }
     }
     static function createEmailActivationKeyTable($con){
@@ -83,7 +85,7 @@ Class DBTables extends Database{
         }
     }
     static function checkTableExists($table, $con){
-        $query = $con->query("SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table'");
+        $query = $con->query("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table' AND TABLE_SCHEMA = 'webforum';");
         //table doesn't exist
         if($query->fetchColumn() != 1){
             return false;

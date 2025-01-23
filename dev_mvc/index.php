@@ -36,12 +36,12 @@ ini_set('display_errors','1');
 session_start();
 
 $redis = new Redis();
-$redis->connect('sc-redis','6379');
-$redis->auth("password");
+$redis->connect(getenv("REDIS_HOST"),'6379');
+// $redis->auth();
 $redis->set('DB_CREATED', false);
 echo $redis->get('DB_CREATED');
 if(!$redis->get('DB_CREATED') || $redis->get('DB_CREATED') == ''){
-    Database::createDBIfNotPresent();
+    // Database::createDBIfNotPresent();
     $redis->set('DB_CREATED', true);
 }
 
@@ -50,6 +50,7 @@ if(!$redis->get('DB_CREATED') || $redis->get('DB_CREATED') == ''){
 
 $mvcController = new MVCController();
 $mvcController->executeModel();
+// echo $_POST['testaction'];
 if(!isset($_POST['testaction'])){
     include_once(ROOT_DIR."/view/content_pagetemplate.php");
 }

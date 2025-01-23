@@ -4,10 +4,11 @@ use PDO;
 use PDOException;
 class TA_CreateDB extends TestAction{
     function TA_CreateDB(){
-        
+        echo("aids");
         parent::__construct();
     }
     function execute(){
+        echo("aids");
         try{
             if(getenv("SQL_CREDENTIALS") !== false){
                 $sql_server = getenv("SQL_SERVER");
@@ -16,9 +17,9 @@ class TA_CreateDB extends TestAction{
                 $sql_database = getenv("SQL_DATABASE");
             }
             else{
-            $sql_server = "localhost";
+            $sql_server = "database";
             $sql_username = "root";
-            $sql_password = "kankerlow";
+            $sql_password = "tiger";
             $sql_database = "webforum";
         }
         $host = $sql_server;

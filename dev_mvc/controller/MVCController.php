@@ -2,7 +2,7 @@
 namespace controller;
 class MVCController{
 	private $model;
-	private $testaction;
+	private $testaction = "";
     private $viewmodel;
     private $view;
     private $viewOverridden = false;
